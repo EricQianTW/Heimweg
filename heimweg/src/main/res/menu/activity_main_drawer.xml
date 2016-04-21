@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Menu 菜单">
+        <menu>
+            <item
+                android:id="@+id/nav_ordergoods"
+                android:icon="@drawable/ic_menu_share"
+                android:title="我要订货" />
+            <item
+                android:id="@+id/nav_register"
+                android:icon="@drawable/ic_menu_send"
+                android:title="注册" />
+            <item
+                android:id="@+id/nav_searchorder"
+                android:icon="@drawable/ic_menu_send"
+                android:title="查单" />
+            <item
+                android:id="@+id/nav_reel"
+                android:icon="@drawable/ic_menu_send"
+                android:title="天使如愿盘" />
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- blue -->
+    <style name="blue">
+        <item name="android:textColor">@color/blue_6d</item>
+    </style>
+
+    <style name="blue.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="blue.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="blue.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- red -->
+    <style name="red">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="red.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="red.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="red.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <!-- black -->
+    <style name="black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="white.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+    <style name="white.24">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="black.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="black.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="black.22">
+        <item name="android:textSize">22sp</item>
+    </style>
+    <style name="black.20">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="black.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="black.24">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="black.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+        <style name="black.15">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <!-- white -->
+    <style name="white">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="white.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="white.15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="white.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="white.17">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="white.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="white.20">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- white -->
+    <style name="gray88">
+        <item name="android:textColor">@color/gray_88</item>
+    </style>
+
+    <style name="gray88.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="gray88.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="gray88.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="gray88.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="gray88.22">
+        <item name="android:textSize">22sp</item>
+    </style>
+    <style name="gray88.26">
+        <item name="android:textSize">26sp</item>
+    </style>
+    <style name="gray8818">
+        <item name="android:textSize">18sp</item>
+    </style>
+        <style name="gray88.20">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- red_f7 -->
+    <style name="red_eb">
+        <item name="android:textColor">@color/red_eb</item>
+    </style>
+
+    <style name="red_eb.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- red_f7 -->
+    <style name="red_f7">
+        <item name="android:textColor">@color/red_f7</item>
+    </style>
+
+    <style name="red_f7.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    
+    <style name="red_f7.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+    <style name="red_f7.15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="red_f7.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="red_f7.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <!-- gray_99 -->
+    <style name="gray99">
+        <item name="android:textColor">@color/base_color_text_gray</item>
+    </style>
+
+    <style name="gray99.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="gray99.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="gray99.15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="gray99.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    
+    <style name="gray99.20">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!-- gray_66 -->
+    <style name="gray66">
+        <item name="android:textColor">@color/gray_66</item>
+    </style>
+
+    <style name="gray66.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="gray66.24">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="gray66.15">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="gray66.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="gray66.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="gray66.20">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="gray66.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- gray_39 -->
+    <style name="gray39">
+        <item name="android:textColor">@color/gray_39</item>
+    </style>
+
+    <style name="gray39.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="gray39.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <!-- gray_33 -->
+    <style name="gray33">
+        <item name="android:textColor">@color/gray_33</item>
+    </style>
+
+    <style name="gray33.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="gray33.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="gray33.15">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="gray33.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="gray33.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="gray33.20">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="gray33.24">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <!-- gray_03 -->
+    <style name="gray03">
+        <item name="android:textColor">@color/gray_03</item>
+    </style>
+
+    <style name="gray03.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="gray03.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="gray03.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="gray03.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="gray03.22">
+        <item name="android:textSize">22sp</item>
+    </style>
+    <style name="gray03.24">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <!-- bule_57 -->
+    <style name="bule_57">
+        <item name="android:textColor">@color/bule_57</item>
+    </style>
+
+    <style name="bule_57.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    
+    <style name="bule_57.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="bule_57.16">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="bule_57.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="bule_57.20">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- bule_57 -->
+    <style name="gray_ff">
+        <item name="android:textColor">@color/gray_ff</item>
+    </style>
+
+    <style name="gray_ff.12">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <!-- yellow_ff -->
+    <style name="yellow_ff">
+        <item name="android:textColor">@color/yellow_ff</item>
+    </style>
+
+    <style name="yellow_ff.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="yellow_ff.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- yellow_b0 -->
+    <style name="yellow_b0">
+        <item name="android:textColor">@color/yellow_b0</item>
+    </style>
+
+    <style name="yellow_b0.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+  	<!-- gray_33 -->
+    <style name="gray_ce">
+        <item name="android:textColor">@color/gray_ce</item>
+    </style>
+
+    <style name="gray_ce.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+  	<!-- red_fe8378 -->
+    <style name="red_fe8378">
+        <item name="android:textColor">@color/red_fe8378</item>
+    </style>
+
+    <style name="red_fe8378.18">
+        <item name="android:textSize">18sp</item>
+    </style>
+  	<!-- gray_33 -->
+    <style name="gray_9f">
+        <item name="android:textColor">@color/gray_9f</item>
+    </style>
+
+    <style name="gray_9f.14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>
