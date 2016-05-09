@@ -9,5 +9,7 @@ import com.hmwg.utils.SPUtils;
  */
 public class BasePresenter {
 
+    // 当前class名
+    protected String TAG = this.getClass().getName();
 
 }

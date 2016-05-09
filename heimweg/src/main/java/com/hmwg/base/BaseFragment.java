@@ -35,8 +35,6 @@ public class BaseFragment extends Fragment {
     public static long firstTime;
     // 登录者
     public static EmployeeInfo user;
-    // 设备ID
-    public static String serialNumber = android.os.Build.SERIAL;
 
     @Nullable
     @Override

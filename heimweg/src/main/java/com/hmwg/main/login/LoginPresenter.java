@@ -39,38 +39,39 @@ public class LoginPresenter extends BasePresenter implements LoginContract.Prese
     }
 
     public void okHttp(String userId,String passwd,final Context mContext) {
-        OkHttpUtils
-                .get()
-                .url(Constant.HTTP_IP)
-                .addParams("_Interface", "Matan.User_1")
-                .addParams("_Method", "MBUserLogin")
-                .addParams("deviceid", Constant.serialNumber)
-                .addParams("loginname", GSONUtils.toJson(userId))
-                .addParams("password", GSONUtils.toJson(passwd))
-                .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMap(userId, passwd))))
-                .build()//
-                .execute(new Callback<EmployeeInfo>() {
-                    @Override
-                    public EmployeeInfo parseNetworkResponse(Response response) throws Exception {
-                        return GSONUtils.fromJson(response.body().string(), EmployeeInfo.class);
-                    }
-
-                    @Override
-                    public void onError(Call call, Exception e) {
-                        Logger.e(e,"something happend");
-                    }
-
-                    @Override
-                    public void onResponse(EmployeeInfo response) {
-                        if(response.getState() == Constant.OKHTTP_RESULT_SUCESS){
-                            response.setLogin(true);
-                            SPUtils.put(mContext,SPUtils.SP_LOGIN_INFO, GSONUtils.toJson(response));
+//        OkHttpUtils
+//                .get()
+//                .url(Constant.HTTP_IP)
+//                .addParams("_Interface", "Matan.User_1")
+//                .addParams("_Method", "MBUserLogin")
+//                .addParams("deviceid", Constant.serialNumber)
+//                .addParams("loginname", GSONUtils.toJson(userId))
+//                .addParams("password", GSONUtils.toJson(passwd))
+//                .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMap(userId, passwd))))
+//                .build()
+//                .execute(new Callback<EmployeeInfo>() {
+//                    @Override
+//                    public EmployeeInfo parseNetworkResponse(Response response) throws Exception {
+//                        return GSONUtils.fromJson(response.body().string(), EmployeeInfo.class);
+//                    }
+//
+//                    @Override
+//                    public void onError(Call call, Exception e) {
+//                        Logger.e(e,"something happend");
+//                    }
+//
+//                    @Override
+//                    public void onResponse(EmployeeInfo response) {
+//                        if(response.getState() == Constant.OKHTTP_RESULT_SUCESS){
+//                            response.setLogin(true);
+//                            SPUtils.put(mContext,SPUtils.SP_LOGIN_INFO, GSONUtils.toJson(response));
                             mLoginView.loginSuccess();
-                        }else{
-                            mLoginView.loginFaild();
-                        }
-                    }
-                });
+//                        }else{
+//                            Logger.e(TAG, response.getCustomMessage());
+//                            mLoginView.loginFaild();
+//                        }
+//                    }
+//                });
     }
 
     @NonNull

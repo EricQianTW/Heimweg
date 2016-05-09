@@ -130,12 +130,13 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     @Override
     public void loginSuccess() {
         T.showShort(getActivity(), "登录成功");
-
+        showProgress(false, loginProgress, loginForm);
         IntentUtils.startActivityWithFinish(getActivity(), OrderGoodsActivity.class);
     }
 
     @Override
     public void loginFaild() {
         T.showShort(getActivity(),"登陆失败");
+        showProgress(false, loginProgress, loginForm);
     }
 }

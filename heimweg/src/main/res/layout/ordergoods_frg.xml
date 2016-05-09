@@ -137,6 +137,7 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/ordergoods_til_expcartime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -145,7 +146,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/ordergoods_tv_expcartime"
-                        android:inputType="phone"
+                        android:inputType="none"
                         android:imeActionId="@+id/actionId_ordergoods"
                         android:maxLines="1"
                         android:singleLine="true" />
