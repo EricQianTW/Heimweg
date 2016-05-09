@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="dbflow-sqlcipher-3.0.0-beta3">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/heimweg/build/intermediates/exploded-aar/com.github.Raizlabs.DBFlow/dbflow-sqlcipher/3.0.0-beta3/res" />
+      <root url="jar://$PROJECT_DIR$/heimweg/build/intermediates/exploded-aar/com.github.Raizlabs.DBFlow/dbflow-sqlcipher/3.0.0-beta3/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Raizlabs.DBFlow/dbflow-sqlcipher/3.0.0-beta3/4536dcc7a14373c367d84604fddee86036bd542a/dbflow-sqlcipher-3.0.0-beta3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

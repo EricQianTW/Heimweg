@@ -318,7 +318,6 @@ public class LuckyPanView extends SurfaceView implements Callback, Runnable
 
 			if ((rotate > from) && (rotate < to))
 			{
-				Log.d("TAG", mStrs[i]);
                 return;
             }
         }

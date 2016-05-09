@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Heimweg.iml" filepath="$PROJECT_DIR$/Heimweg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/heimweg/heimweg.iml" filepath="$PROJECT_DIR$/heimweg/heimweg.iml" />
+    </modules>
+  </component>
+</project>

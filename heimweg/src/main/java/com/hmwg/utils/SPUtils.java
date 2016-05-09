@@ -3,6 +3,8 @@ package com.hmwg.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.hmwg.bean.EmployeeInfo;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -201,5 +203,4 @@ public class SPUtils
 			editor.commit();
 		}
 	}
-
 }

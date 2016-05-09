@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.hmwg.activity.WelcomeActivity"
+            android:name="com.hmwg.main.welcome.WelcomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/FullscreenTheme">
             <intent-filter>
@@ -27,31 +27,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.hmwg.activity.MainActivity"
-            android:label="@string/news_modulename"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.hmwg.activity.RegisterActivity"
+            android:name="com.hmwg.main.register.RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.hmwg.activity.LoginActivity"
+            android:name="com.hmwg.main.login.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.hmwg.activity.OrderGoodsActivity"
+            android:name="com.hmwg.main.ordergoods.OrderGoodsActivity"
             android:label="@string/title_activity_ordergoods"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.hmwg.activity.DialActivity"
+            android:name="com.hmwg.main.dial.DialActivity"
             android:label="@string/title_activity_dial"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:name="com.hmwg.activity.SearchGoodsActivity"
+            android:name="com.hmwg.main.searchorder.SearchOrderActivity"
             android:label="@string/title_activity_searchgoods"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden"/>

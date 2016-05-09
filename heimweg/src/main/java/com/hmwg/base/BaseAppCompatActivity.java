@@ -14,10 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.hmwg.activity.DialActivity;
-import com.hmwg.activity.OrderGoodsActivity;
-import com.hmwg.activity.RegisterActivity;
-import com.hmwg.activity.SearchGoodsActivity;
+import com.hmwg.main.dial.DialActivity;
+import com.hmwg.main.ordergoods.OrderGoodsActivity;
+import com.hmwg.main.register.RegisterActivity;
+import com.hmwg.main.searchorder.SearchOrderActivity;
 import com.hmwg.bean.EmployeeInfo;
 import com.hmwg.eric.R;
 import com.hmwg.utils.GSONUtils;
@@ -138,7 +138,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         } else if (id == R.id.nav_register) {
             IntentUtils.startActivityWithFinish(getActivity(), RegisterActivity.class);
         } else if (id == R.id.nav_searchorder) {
-            IntentUtils.startActivity(getActivity(), SearchGoodsActivity.class);
+            IntentUtils.startActivity(getActivity(), SearchOrderActivity.class);
         } else if (id == R.id.nav_reel) {
             IntentUtils.startActivityWithFinish(getActivity(), DialActivity.class);
         }

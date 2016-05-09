@@ -34,8 +34,6 @@ public class BaseActivity extends Activity {
     public static long firstTime;
     // 登录者
     public static EmployeeInfo user;
-    // 设备ID
-    public static String serialNumber = android.os.Build.SERIAL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,4 +114,5 @@ public class BaseActivity extends Activity {
         }
         return user;
     }
+
 }
