@@ -64,7 +64,8 @@ public class LoginPresenter extends BasePresenter implements LoginContract.Prese
 //                    public void onResponse(EmployeeInfo response) {
 //                        if(response.getState() == Constant.OKHTTP_RESULT_SUCESS){
 //                            response.setLogin(true);
-//                            SPUtils.put(mContext,SPUtils.SP_LOGIN_INFO, GSONUtils.toJson(response));
+        EmployeeInfo response = new EmployeeInfo();
+                            SPUtils.put(mContext,SPUtils.SP_LOGIN_INFO, GSONUtils.toJson(response));
                             mLoginView.loginSuccess();
 //                        }else{
 //                            Logger.e(TAG, response.getCustomMessage());

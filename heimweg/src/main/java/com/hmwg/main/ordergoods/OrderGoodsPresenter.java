@@ -36,11 +36,7 @@ public class OrderGoodsPresenter extends BasePresenter implements OrderGoodsCont
     }
 
     @Override
-    public void loginTask(OrderInfo info, EmployeeInfo employeeInfo) {
-        okHttp(info,employeeInfo);
-    }
-
-    public void okHttp(OrderInfo info, EmployeeInfo employeeInfo) {
+    public void addOrder(OrderInfo info, EmployeeInfo employeeInfo) {
         OkHttpUtils
                 .get()
                 .url(Constant.HTTP_IP)
@@ -49,7 +45,7 @@ public class OrderGoodsPresenter extends BasePresenter implements OrderGoodsCont
                 .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
                 .addParams("userid", GSONUtils.toJson(employeeInfo.getEmployeeID()))
                 .addParams("oi", GSONUtils.toJson(info))
-                .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMap(employeeInfo.getEmployeeID(), GSONUtils.toJson(info)))))
+                .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMapForAddOrder(employeeInfo.getEmployeeID(), GSONUtils.toJson(info)))))
                 .build()
                 .execute(new Callback<ResBoolean>() {
                     @Override
@@ -70,11 +66,49 @@ public class OrderGoodsPresenter extends BasePresenter implements OrderGoodsCont
     }
 
     @NonNull
-    private HashMap getRSAMap(String userId, String oi) {
+    private HashMap getRSAMapForAddOrder(String userId, String oi) {
         HashMap map = new HashMap();
         map.put("deviceid", Constant.serialNumber);
         map.put("userid", userId);
         map.put("oi", oi);
+        return map;
+    }
+
+    @Override
+    public void getAddress(EmployeeInfo employeeInfo) {
+        OkHttpUtils
+                .get()
+                .url(Constant.HTTP_IP)
+                .addParams("_Interface", "Matan.User_1")
+                .addParams("_Method", "MB_GetAddress")
+                .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
+                .addParams("UserId", GSONUtils.toJson(employeeInfo.getEmployeeID()))
+                .addParams("password", GSONUtils.toJson(employeeInfo.getPassword()))
+                .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMapForGetAddress(employeeInfo.getEmployeeID(), employeeInfo.getPassword()))))
+                .build()
+                .execute(new Callback<ResBoolean>() {
+                    @Override
+                    public ResBoolean parseNetworkResponse(Response response) throws Exception {
+                        return GSONUtils.fromJson(response.body().string(), ResBoolean.class);
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e) {
+                        Logger.e(e,"something happend");
+                    }
+
+                    @Override
+                    public void onResponse(ResBoolean response) {
+                    }
+                });
+    }
+
+    @NonNull
+    private HashMap getRSAMapForGetAddress(String userId, String password) {
+        HashMap map = new HashMap();
+        map.put("deviceid", Constant.serialNumber);
+        map.put("UserId", userId);
+        map.put("password", password);
         return map;
     }
 

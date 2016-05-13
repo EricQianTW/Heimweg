@@ -23,7 +23,8 @@ import com.appeaser.sublimepickerlibrary.helpers.SublimeOptions;
 import com.appeaser.sublimepickerlibrary.recurrencepicker.SublimeRecurrencePicker;
 import com.hmwg.base.BaseFragment;
 import com.hmwg.bean.OrderInfo;
-import com.hmwg.control.SublimePickerFragment;
+import com.hmwg.control.DateTimePicker.SublimePickerFragment;
+import com.hmwg.control.DateTimePicker.Tools;
 import com.hmwg.eric.R;
 import com.hmwg.utils.DateUtils;
 import com.hmwg.utils.T;
@@ -94,6 +95,8 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
 
     private void initView() {
         ordergoodsTvOrdertime.setText(DateUtils.dateToString(new Date(), DateUtils.F19));
+
+        mPresenter.getAddress(user);
     }
 
     @Override
@@ -140,7 +143,7 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
                     pickerFrag.setCallback(mFragmentCallback);
 
                     // Options
-                    Pair<Boolean, SublimeOptions> optionsPair = getOptions();
+                    Pair<Boolean, SublimeOptions> optionsPair = Tools.getNormalOptions();
 
                     if (!optionsPair.first) { // If options are not valid
                         T.showShort(getContext(), "No pickers activated");
@@ -173,57 +176,9 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
         });
     }
 
-    // Validates & returns SublimePicker options
-    Pair<Boolean, SublimeOptions> getOptions() {
-        SublimeOptions options = new SublimeOptions();
-        int displayOptions = 0;
-
-//        if (cbDatePicker.isChecked()) {
-        displayOptions |= SublimeOptions.ACTIVATE_DATE_PICKER;
-//        }
-//
-//        if (cbTimePicker.isChecked()) {
-        displayOptions |= SublimeOptions.ACTIVATE_TIME_PICKER;
-//        }
-//
-//        if (cbRecurrencePicker.isChecked()) {
-        displayOptions |= SublimeOptions.ACTIVATE_RECURRENCE_PICKER;
-//        }
-
-//        if (rbDatePicker.getVisibility() == View.VISIBLE && rbDatePicker.isChecked()) {
-        options.setPickerToShow(SublimeOptions.Picker.DATE_PICKER);
-//        } else if (rbTimePicker.getVisibility() == View.VISIBLE && rbTimePicker.isChecked()) {
-//            options.setPickerToShow(SublimeOptions.Picker.TIME_PICKER);
-//        } else if (rbRecurrencePicker.getVisibility() == View.VISIBLE && rbRecurrencePicker.isChecked()) {
-//            options.setPickerToShow(SublimeOptions.Picker.REPEAT_OPTION_PICKER);
-//        }
-
-        options.setDisplayOptions(displayOptions);
-
-        // Enable/disable the date range selection feature
-//        options.setCanPickDateRange(cbAllowDateRangeSelection.isChecked());
-
-        // Example for setting date range:
-        // Note that you can pass a date range as the initial date params
-        // even if you have date-range selection disabled. In this case,
-        // the user WILL be able to change date-range using the header
-        // TextViews, but not using long-press.
-
-        /*Calendar startCal = Calendar.getInstance();
-        startCal.set(2016, 2, 4);
-        Calendar endCal = Calendar.getInstance();
-        endCal.set(2016, 2, 17);
-
-        options.setDateParams(startCal, endCal);*/
-
-        // If 'displayOptions' is zero, the chosen options are not valid
-        return new Pair<>(displayOptions != 0 ? Boolean.TRUE : Boolean.FALSE, options);
-    }
-
     SublimePickerFragment.Callback mFragmentCallback = new SublimePickerFragment.Callback() {
         @Override
         public void onCancelled() {
-//            rlDateTimeRecurrenceInfo.setVisibility(View.GONE);
         }
 
         @Override
@@ -231,24 +186,7 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
                                             int hourOfDay, int minute,
                                             SublimeRecurrencePicker.RecurrenceOption recurrenceOption,
                                             String recurrenceRule) {
-//
-//            mSelectedDate = selectedDate;
-//            mHour = hourOfDay;
-//            mMinute = minute;
-//            mRecurrenceOption = recurrenceOption != null ?
-//                    recurrenceOption.name() : "n/a";
-//            mRecurrenceRule = recurrenceRule != null ?
-//                    recurrenceRule : "n/a";
-//
-//            updateInfoView();
-//
-//            svMainContainer.post(new Runnable() {
-//                @Override
-//                public void run() {
-//                    svMainContainer.scrollTo(svMainContainer.getScrollX(),
-//                            cbAllowDateRangeSelection.getBottom());
-//                }
-//            });
+
         }
     };
 
@@ -260,7 +198,7 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
             focusView.requestFocus();
         } else {
             showProgress(true, ordergoodsProgress, ordergoodsSvForm);
-            mPresenter.loginTask(setModel(), ((OrderGoodsActivity) getActivity()).getUser());
+            mPresenter.addOrder(setModel(), user);
         }
     }
 

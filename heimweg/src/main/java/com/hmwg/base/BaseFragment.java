@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.hmwg.bean.EmployeeInfo;
+import com.hmwg.main.ordergoods.OrderGoodsActivity;
 import com.hmwg.utils.GSONUtils;
 import com.hmwg.utils.SPUtils;
 import com.hmwg.utils.ValidationUtils;
@@ -46,6 +47,7 @@ public class BaseFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         validation = new ValidationUtils(getContext());
+        user = ((BaseAppCompatActivity) getActivity()).getUser();
     }
 
     /**

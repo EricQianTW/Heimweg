@@ -22,9 +22,6 @@ import butterknife.ButterKnife;
  */
 public class WelcomeActivity extends BaseActivity {
 
-    @Bind(R.id.welcome_tv_content)
-    TextView welcome_tv_content;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +47,7 @@ public class WelcomeActivity extends BaseActivity {
     }
 
     private void initAction() {
-        welcome_tv_content.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jumpPage();
-            }
-        });
+
     }
 
     private void jumpPage() {

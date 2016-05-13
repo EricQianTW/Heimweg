@@ -18,7 +18,9 @@ public interface OrderGoodsContract {
     }
 
     interface Presenter extends BaseInterfacePresenter {
-        void loginTask(OrderInfo info,EmployeeInfo employeeInfo);
+        void addOrder(OrderInfo info,EmployeeInfo employeeInfo);
+
+        void getAddress(EmployeeInfo employeeInfo);
     }
 
 }
