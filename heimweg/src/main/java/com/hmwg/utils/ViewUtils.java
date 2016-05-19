@@ -18,28 +18,28 @@ public class ViewUtils {
      * @param viewGroup
      *            布局对象
      */
-    public static void disableSubControls(ViewGroup viewGroup) {
+    public static void disableSubControls(ViewGroup viewGroup,boolean flag) {
         String TAG = "disableSubControls";
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             View v = viewGroup.getChildAt(i);
             if (v instanceof ViewGroup) {
                 if (v instanceof Spinner) {
                     Spinner spinner = (Spinner) v;
-                    spinner.setClickable(false);
-                    spinner.setEnabled(false);
+                    spinner.setClickable(!flag);
+                    spinner.setEnabled(!flag);
 
                     Log.i(TAG, "A Spinner is unabled");
                 } else if (v instanceof ListView) {
-                    v.setClickable(false);
-                    v.setEnabled(false);
+                    v.setClickable(!flag);
+                    v.setEnabled(!flag);
 
                     Log.i(TAG, "A ListView is unabled");
                 } else {
-                    disableSubControls((ViewGroup) v);
+                    disableSubControls((ViewGroup) v,!flag);
                 }
             } else if (v instanceof EditText) {
-                v.setEnabled(false);
-                v.setClickable(false);
+                v.setEnabled(!flag);
+                v.setClickable(!flag);
 
                 Log.i(TAG, "A EditText is unabled");
             } else if (v instanceof Button) {
@@ -48,5 +48,14 @@ public class ViewUtils {
                 Log.i(TAG, "A Button is unabled");
             }
         }
+    }
+
+    public static void clearFocus(View clearView,View focusView) {
+        clearView.clearFocus();
+
+        focusView.setFocusable(true);
+        focusView.setFocusableInTouchMode(true);
+        focusView.requestFocus();
+        focusView.requestFocusFromTouch();
     }
 }

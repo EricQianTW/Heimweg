@@ -19,6 +19,7 @@
         <activity
             android:name="com.hmwg.main.welcome.WelcomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,26 +31,55 @@
             android:name="com.hmwg.main.register.RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="com.hmwg.main.login.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="com.hmwg.main.ordergoods.OrderGoodsActivity"
             android:label="@string/title_activity_ordergoods"
             android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.hmwg.main.choosestores.ChooseStoresActivity"
+            android:label="@string/title_activity_store"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.hmwg.main.location.LocationActivity"
+            android:label="@string/title_activity_provice"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.hmwg.main.searchlist.SearchListActivity"
+            android:label="@string/title_activity_searchlist"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="com.hmwg.main.dial.DialActivity"
             android:label="@string/title_activity_dial"
             android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name="com.hmwg.main.searchorder.SearchOrderActivity"
             android:label="@string/title_activity_searchgoods"
             android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name="com.hmwg.main.searchdetail.SearchDetailActivity"
+            android:label="@string/title_activity_searchgoods"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"/>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for

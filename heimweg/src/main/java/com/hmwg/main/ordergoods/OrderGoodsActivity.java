@@ -5,12 +5,17 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.hmwg.base.AppManager;
 import com.hmwg.base.BaseAppCompatActivity;
 import com.hmwg.eric.R;
+import com.hmwg.main.choosestores.ChooseStoresActivity;
 import com.hmwg.utils.ActivityUtils;
+import com.hmwg.utils.IntentUtils;
+import com.hmwg.utils.SPUtils;
 import com.hmwg.utils.T;
 
 import butterknife.Bind;
@@ -49,6 +54,10 @@ public class OrderGoodsActivity extends BaseAppCompatActivity implements Navigat
     @Override
     protected void onResume() {
         super.onResume();
+
+        if("".equals(SPUtils.get(getApplicationContext(),SPUtils.SP_STORE_INFO,""))){
+            IntentUtils.startActivity(this,ChooseStoresActivity.class);
+        }
     }
 
     private void initAction() {

@@ -3,9 +3,13 @@ package com.hmwg.main.ordergoods;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -22,15 +26,22 @@ import com.appeaser.sublimepickerlibrary.datepicker.SelectedDate;
 import com.appeaser.sublimepickerlibrary.helpers.SublimeOptions;
 import com.appeaser.sublimepickerlibrary.recurrencepicker.SublimeRecurrencePicker;
 import com.hmwg.base.BaseFragment;
-import com.hmwg.bean.OrderInfo;
+import com.hmwg.bean.CODE_SPEC;
+import com.hmwg.bean.OrderInfoAPI;
 import com.hmwg.control.DateTimePicker.SublimePickerFragment;
 import com.hmwg.control.DateTimePicker.Tools;
+import com.hmwg.control.pacificadapter.HorizontalItemDecoration;
 import com.hmwg.eric.R;
 import com.hmwg.utils.DateUtils;
+import com.hmwg.utils.SPUtils;
 import com.hmwg.utils.T;
 import com.hmwg.utils.ValidationUtils;
+import com.hmwg.utils.ViewUtils;
+import com.pacific.adapter.RecyclerAdapter;
+import com.pacific.adapter.RecyclerAdapterHelper;
 
 import java.util.Date;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -54,8 +65,6 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
     EditText ordergoodsTvCarownername;
     @Bind(R.id.ordergoods_tv_phone)
     EditText ordergoodsTvPhone;
-    @Bind(R.id.ordergoods_tv_deliveraddress)
-    EditText ordergoodsTvDeliveraddress;
     @Bind(R.id.ordergoods_tv_expcartime)
     EditText ordergoodsTvExpcartime;
     @Bind(R.id.fab)
@@ -66,8 +75,15 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
     ScrollView ordergoodsSvForm;
     @Bind(R.id.ordergoods_til_expcartime)
     TextInputLayout ordergoodsTilExpcartime;
+    @Bind(R.id.ordergoods_tv_store)
+    EditText ordergoodsTvStore;
 
     private OrderGoodsContract.Presenter mPresenter;
+    private RecyclerAdapter<CODE_SPEC> adapter;
+    private RecyclerView recyclerView;
+    private BottomSheetDialog dialog;
+    private OrderInfoAPI orderInfo;
+    private int fileModelId;
 
     public OrderGoodsFragment() {
         new OrderGoodsPresenter(this);
@@ -89,20 +105,23 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initView();
-        initAction();
+
     }
 
     private void initView() {
         ordergoodsTvOrdertime.setText(DateUtils.dateToString(new Date(), DateUtils.F19));
-
-        mPresenter.getAddress(user);
+        ordergoodsTvStore.setText(SPUtils.get(getActivity(),SPUtils.SP_STORE_INFO,"").toString());
+        if(!"".equals(SPUtils.get(getActivity(),SPUtils.SP_STOREID_INFO,""))) {
+            mPresenter.startOrder(user.getId(),ordergoodsTvOrdertime.getText().toString(),Integer.parseInt(SPUtils.get(getActivity(),SPUtils.SP_STOREID_INFO,"").toString()));
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
         mPresenter.start();
+        initView();
+        initAction();
     }
 
     @Override
@@ -137,7 +156,7 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
         ordergoodsTvExpcartime.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
+                if (hasFocus) {
                     // DialogFragment to host SublimePicker
                     SublimePickerFragment pickerFrag = new SublimePickerFragment();
                     pickerFrag.setCallback(mFragmentCallback);
@@ -158,22 +177,62 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
                     pickerFrag.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
                     pickerFrag.show(getChildFragmentManager(), "SUBLIME_PICKER");
 
-                    ordergoodsTvExpcartime.clearFocus();
+                    ViewUtils.clearFocus(ordergoodsTvExpcartime,fab);
+                }
+            }
 
-                    fab.setFocusable(true);
-                    fab.setFocusableInTouchMode(true);
-                    fab.requestFocus();
-                    fab.requestFocusFromTouch();
+
+        });
+
+        ordergoodsTvTimmodel.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    openBottomSheet();
+
+                    ViewUtils.clearFocus(ordergoodsTvTimmodel,fab);
                 }
             }
         });
+    }
 
-        ordergoodsTilExpcartime.setOnClickListener(new View.OnClickListener() {
+    public void openBottomSheet() {
+        initBottomSheet();
+
+        initAdapter();
+
+        mPresenter.getFileModel(user.getId());
+    }
+
+    private void initAdapter() {
+        adapter = new RecyclerAdapter<CODE_SPEC>(getContext(), R.layout.common_adp_siglecentertext) {
             @Override
-            public void onClick(View v) {
-
+            protected void convert(final RecyclerAdapterHelper helper, final CODE_SPEC info) {
+                final int position = helper.getAdapterPosition();
+                helper.setText(R.id.tv_string, info.getGRMXH()).getItemView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ordergoodsTvTimmodel.setText(info.getGRMXH());
+                        fileModelId = info.getId();
+                        dialog.dismiss();
+                    }
+                });
+                helper.getItemView().setTag(TAG);
             }
-        });
+        };
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void initBottomSheet() {
+        recyclerView = (RecyclerView) LayoutInflater.from(getActivity())
+                .inflate(R.layout.common_bs_list, null);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        recyclerView.addItemDecoration(new HorizontalItemDecoration
+                .Builder(getContext())
+                .colorResId(R.color.gray_88)
+                .sizeResId(R.dimen.height_explore_divider_1)
+                .build());
     }
 
     SublimePickerFragment.Callback mFragmentCallback = new SublimePickerFragment.Callback() {
@@ -186,7 +245,8 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
                                             int hourOfDay, int minute,
                                             SublimeRecurrencePicker.RecurrenceOption recurrenceOption,
                                             String recurrenceRule) {
-
+            String temp = DateUtils.calendarToString(selectedDate.getStartDate(),DateUtils.F20) + " " + hourOfDay + ":" + minute;
+            ordergoodsTvExpcartime.setText(temp);
         }
     };
 
@@ -202,16 +262,15 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
         }
     }
 
-    private OrderInfo setModel() {
-        OrderInfo info = new OrderInfo();
-        info.setYjtcsj(ordergoodsTvExpcartime.getText().toString());
-        info.setAddress(ordergoodsTvDeliveraddress.getText().toString());
-        info.setPhoneNum(ordergoodsTvPhone.getText().toString());
-        info.setGrmxh(ordergoodsTvTimmodel.getText().toString());
-        info.setCardMan(ordergoodsTvCarownername.getText().toString());
-        info.setCardNo(ordergoodsTvCarframeno.getText().toString());
-        info.setCreateTime(ordergoodsTvOrdertime.getText().toString());
-        return info;
+    private OrderInfoAPI setModel() {
+        orderInfo.setYjtcsj(ordergoodsTvExpcartime.getText().toString());
+        orderInfo.setPhoneNum(ordergoodsTvPhone.getText().toString());
+        orderInfo.setGrmxh(String.valueOf(fileModelId));
+        orderInfo.setCardMan(ordergoodsTvCarownername.getText().toString());
+        orderInfo.setCardNo(ordergoodsTvCarframeno.getText().toString());
+        orderInfo.setStrCreateTime(ordergoodsTvOrdertime.getText().toString());
+        orderInfo.setShopName(ordergoodsTvStore.getText().toString());
+        return orderInfo;
     }
 
     /**
@@ -242,10 +301,6 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
             focusView = ordergoodsTvPhone;
             return true;
         }
-        if (validation.isEmpty(ordergoodsTvDeliveraddress, validation.isEmptyMessage(R.string.ordergoods_tv_deliveraddress))) {
-            focusView = ordergoodsTvDeliveraddress;
-            return true;
-        }
         if (validation.isEmpty(ordergoodsTvExpcartime, validation.isEmptyMessage(R.string.ordergoods_tv_expcartime))) {
             focusView = ordergoodsTvExpcartime;
             return true;
@@ -260,14 +315,29 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
     }
 
     @Override
-    public void loginSuccess() {
+    public void orderSuccess() {
         showProgress(false, ordergoodsProgress, ordergoodsSvForm);
         T.showShort(getActivity(), "下单成功");
     }
 
     @Override
-    public void loginFaild() {
+    public void orderFaild() {
         showProgress(false, ordergoodsProgress, ordergoodsSvForm);
         T.showShort(getActivity(), "下单失败");
+    }
+
+    @Override
+    public void setFileModel(List<CODE_SPEC> array) {
+        if(adapter.getSize() == 0){
+            adapter.addAll(array);
+            dialog = new BottomSheetDialog(getActivity());
+            dialog.setContentView(recyclerView);
+            dialog.show();
+        }
+    }
+
+    @Override
+    public void setOrderInfo(OrderInfoAPI info) {
+        orderInfo = info;
     }
 }

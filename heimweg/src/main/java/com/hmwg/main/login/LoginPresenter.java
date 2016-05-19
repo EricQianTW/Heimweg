@@ -3,8 +3,11 @@ package com.hmwg.main.login;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.google.gson.reflect.TypeToken;
 import com.hmwg.base.BasePresenter;
+import com.hmwg.base.Message;
 import com.hmwg.bean.EmployeeInfo;
+import com.hmwg.bean.SaleList;
 import com.hmwg.common.Constant;
 import com.hmwg.utils.GSONUtils;
 import com.hmwg.utils.RSAUtils;
@@ -15,6 +18,7 @@ import com.zhy.http.okhttp.callback.Callback;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -39,40 +43,43 @@ public class LoginPresenter extends BasePresenter implements LoginContract.Prese
     }
 
     public void okHttp(String userId,String passwd,final Context mContext) {
-//        OkHttpUtils
-//                .get()
-//                .url(Constant.HTTP_IP)
-//                .addParams("_Interface", "Matan.User_1")
-//                .addParams("_Method", "MBUserLogin")
-//                .addParams("deviceid", Constant.serialNumber)
-//                .addParams("loginname", GSONUtils.toJson(userId))
-//                .addParams("password", GSONUtils.toJson(passwd))
-//                .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMap(userId, passwd))))
-//                .build()
-//                .execute(new Callback<EmployeeInfo>() {
-//                    @Override
-//                    public EmployeeInfo parseNetworkResponse(Response response) throws Exception {
-//                        return GSONUtils.fromJson(response.body().string(), EmployeeInfo.class);
-//                    }
-//
-//                    @Override
-//                    public void onError(Call call, Exception e) {
-//                        Logger.e(e,"something happend");
-//                    }
-//
-//                    @Override
-//                    public void onResponse(EmployeeInfo response) {
-//                        if(response.getState() == Constant.OKHTTP_RESULT_SUCESS){
-//                            response.setLogin(true);
-        EmployeeInfo response = new EmployeeInfo();
-                            SPUtils.put(mContext,SPUtils.SP_LOGIN_INFO, GSONUtils.toJson(response));
+        OkHttpUtils
+                .get()
+                .url(Constant.HTTP_IP)
+                .addParams("_Interface", "Matan.User_1")
+                .addParams("_Method", "MBUserLogin")
+                .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
+                .addParams("loginname", GSONUtils.toJson(userId))
+                .addParams("password", GSONUtils.toJson(passwd))
+                .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMap(userId, passwd))))
+                .build()
+                .execute(new Callback<String>() {
+                    @Override
+                    public String parseNetworkResponse(Response response) throws Exception {
+                        return response.body().string();
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e) {
+                        Logger.e(e,"something happend");
+                    }
+
+                    @Override
+                    public void onResponse(String response) {
+                        TypeToken<Message<EmployeeInfo>> token = new TypeToken<Message<EmployeeInfo>>() {
+                        };
+                        Message<EmployeeInfo> dataPackage = GSONUtils.fromJson(response, token);
+                        if(dataPackage.getState() == Constant.OKHTTP_RESULT_SUCESS){
+                            EmployeeInfo info = dataPackage.getBody();
+                            info.setLogin(true);
+                            SPUtils.put(mContext,SPUtils.SP_LOGIN_INFO, GSONUtils.toJson(info));
                             mLoginView.loginSuccess();
-//                        }else{
-//                            Logger.e(TAG, response.getCustomMessage());
-//                            mLoginView.loginFaild();
-//                        }
-//                    }
-//                });
+                        }else{
+                            Logger.e(TAG, dataPackage.getCustomMessage());
+                            mLoginView.loginFaild();
+                        }
+                    }
+                });
     }
 
     @NonNull

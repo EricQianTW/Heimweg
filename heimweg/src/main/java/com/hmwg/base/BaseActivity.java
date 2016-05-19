@@ -93,7 +93,7 @@ public class BaseActivity extends Activity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-            ViewUtils.disableSubControls(viewGroup);
+            ViewUtils.disableSubControls(viewGroup,show);
             progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
             progressBar.animate().setDuration(shortAnimTime).alpha(
                     show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
@@ -103,7 +103,7 @@ public class BaseActivity extends Activity {
                 }
             });
         } else {
-            ViewUtils.disableSubControls(viewGroup);
+            ViewUtils.disableSubControls(viewGroup,show);
             progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
         }
     }

@@ -2,8 +2,6 @@ package com.hmwg.main.register;
 
 import com.hmwg.base.BaseInterfacePresenter;
 import com.hmwg.base.BaseInterfaceView;
-import com.hmwg.bean.EmployeeInfo;
-import com.hmwg.bean.OrderInfo;
 
 /**
  * Created by eric_qiantw on 16/5/8.

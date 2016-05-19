@@ -1,11 +1,12 @@
 package com.hmwg.main.ordergoods;
 
-import android.content.Context;
-
 import com.hmwg.base.BaseInterfacePresenter;
 import com.hmwg.base.BaseInterfaceView;
+import com.hmwg.bean.CODE_SPEC;
 import com.hmwg.bean.EmployeeInfo;
-import com.hmwg.bean.OrderInfo;
+import com.hmwg.bean.OrderInfoAPI;
+
+import java.util.List;
 
 /**
  * Created by eric_qiantw on 16/5/8.
@@ -13,14 +14,20 @@ import com.hmwg.bean.OrderInfo;
 public interface OrderGoodsContract {
 
     interface View extends BaseInterfaceView<Presenter> {
-        void loginSuccess();
-        void loginFaild();
+        void orderSuccess();
+        void orderFaild();
+        void setFileModel(List<CODE_SPEC> array);
+        void setOrderInfo(OrderInfoAPI info);
     }
 
     interface Presenter extends BaseInterfacePresenter {
-        void addOrder(OrderInfo info,EmployeeInfo employeeInfo);
+        void startOrder(int userId,String strTime,int ShopId);
+
+        void addOrder(OrderInfoAPI info,EmployeeInfo employeeInfo);
 
         void getAddress(EmployeeInfo employeeInfo);
+
+        void getFileModel(int UserId);
     }
 
 }

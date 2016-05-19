@@ -6,14 +6,18 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.hmwg.main.choosestores.ChooseStoresActivity;
 import com.hmwg.main.dial.DialActivity;
 import com.hmwg.main.ordergoods.OrderGoodsActivity;
 import com.hmwg.main.register.RegisterActivity;
@@ -60,6 +64,21 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         ActivityManager.getInstance().setCurrentActivity(this);
+
+        NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
+        if(nav_view != null){
+            View header = nav_view.getHeaderView(0);
+            if(header != null){
+                TextView tv_username = (TextView) header.findViewById(R.id.tv_username);
+                if(tv_username != null){
+                    tv_username.setText("欢迎  " + getUser().getName());
+                }
+                TextView tv_location = (TextView) header.findViewById(R.id.tv_location);
+                if(tv_location != null){
+                    tv_location.setText(String.valueOf(SPUtils.get(this,SPUtils.SP_STORE_INFO,"")));
+                }
+            }
+        }
     }
 
     @Override
@@ -135,12 +154,15 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     protected void initMenuAction(int id) {
         if (id == R.id.nav_ordergoods) {
             IntentUtils.startActivityWithFinish(getActivity(), OrderGoodsActivity.class);
-        } else if (id == R.id.nav_register) {
-            IntentUtils.startActivityWithFinish(getActivity(), RegisterActivity.class);
-        } else if (id == R.id.nav_searchorder) {
+        } else if (id == R.id.nav_logout) {
+            SPUtils.remove(this,SPUtils.SP_LOGIN_INFO);
+            AppManager.getAppManager().AppExit(getActivity());
+        } else if (id == R.id.nav_choicestore) {
+            IntentUtils.startActivity(getActivity(), ChooseStoresActivity.class);
+        }else if (id == R.id.nav_searchorder) {
             IntentUtils.startActivity(getActivity(), SearchOrderActivity.class);
         } else if (id == R.id.nav_reel) {
-            IntentUtils.startActivityWithFinish(getActivity(), DialActivity.class);
+            IntentUtils.startActivity(getActivity(), DialActivity.class);
         }
     }
 
@@ -152,7 +174,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-            ViewUtils.disableSubControls(viewGroup);
+            ViewUtils.disableSubControls(viewGroup,show);
             progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
             progressBar.animate().setDuration(shortAnimTime).alpha(
                     show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
@@ -162,7 +184,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
                 }
             });
         } else {
-            ViewUtils.disableSubControls(viewGroup);
+            ViewUtils.disableSubControls(viewGroup,show);
             progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
         }
     }

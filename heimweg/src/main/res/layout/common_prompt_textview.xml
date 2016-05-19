@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@color/gray_theme"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/prompt_title"
+        style="@style/gray33.16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp"
+        android:text="@null" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+        <TextView
+            android:id="@+id/common_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/gray33.16"
+            android:text="@null"
+            />
+
+        <EditText
+            android:id="@+id/common_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <Button
+            android:id="@+id/cancel"
+            style="@style/gray33.16"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:padding="10dp"
+            android:background="@drawable/btn_frame"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/confirm"
+            style="@style/white.16"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_red"
+            android:text="@null" />
+    </LinearLayout>
+
+</LinearLayout>

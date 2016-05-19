@@ -1,9 +1,16 @@
 package com.hmwg.main.searchorder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +24,25 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.appeaser.sublimepickerlibrary.datepicker.SelectedDate;
+import com.appeaser.sublimepickerlibrary.helpers.SublimeOptions;
+import com.appeaser.sublimepickerlibrary.recurrencepicker.SublimeRecurrencePicker;
 import com.hmwg.base.BaseFragment;
+import com.hmwg.bean.CODE_SPEC;
+import com.hmwg.bean.OrderInfoAPI;
+import com.hmwg.control.DateTimePicker.SublimePickerFragment;
+import com.hmwg.control.DateTimePicker.Tools;
+import com.hmwg.control.pacificadapter.HorizontalItemDecoration;
 import com.hmwg.eric.R;
+import com.hmwg.main.searchlist.SearchListActivity;
+import com.hmwg.utils.DateUtils;
 import com.hmwg.utils.T;
 import com.hmwg.utils.ValidationUtils;
+import com.hmwg.utils.ViewUtils;
+import com.pacific.adapter.RecyclerAdapter;
+import com.pacific.adapter.RecyclerAdapterHelper;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -50,6 +72,10 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     FloatingActionButton fab;
 
     private SearchOrderContract.Presenter mPresenter;
+    private RecyclerAdapter<CODE_SPEC> adapter;
+    private RecyclerView recyclerView;
+    private BottomSheetDialog dialog;
+    private int fileModelId;
 
     public SearchOrderFragment(){
         new SearchOrderPresenter(this);
@@ -76,7 +102,10 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     }
 
     private void initView() {
-
+        fab.setFocusable(true);
+        fab.setFocusableInTouchMode(true);
+        fab.requestFocus();
+        fab.requestFocusFromTouch();
     }
 
     @Override
@@ -113,10 +142,160 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
                 return false;
             }
         });
+
+        searchgoodsTvOrdertime.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // DialogFragment to host SublimePicker
+                    SublimePickerFragment pickerFrag = new SublimePickerFragment();
+                    pickerFrag.setCallback(mFragmentCallback);
+
+                    // Options
+                    Pair<Boolean, SublimeOptions> optionsPair = Tools.getNormalOptions();
+
+                    if (!optionsPair.first) { // If options are not valid
+                        T.showShort(getContext(), "No pickers activated");
+                        return;
+                    }
+
+                    // Valid options
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("SUBLIME_OPTIONS", optionsPair.second);
+                    pickerFrag.setArguments(bundle);
+
+                    pickerFrag.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+                    pickerFrag.show(getChildFragmentManager(), "SUBLIME_PICKER");
+
+                    ViewUtils.clearFocus(searchgoodsTvOrdertime,fab);
+                }
+            }
+
+
+        });
+
+        searchgoodsTvActureconstrustion.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    // DialogFragment to host SublimePicker
+                    SublimePickerFragment pickerFrag = new SublimePickerFragment();
+                    pickerFrag.setCallback(mFragmentTrueCallback);
+
+                    // Options
+                    Pair<Boolean, SublimeOptions> optionsPair = Tools.getNormalOptions();
+
+                    if (!optionsPair.first) { // If options are not valid
+                        T.showShort(getContext(), "No pickers activated");
+                        return;
+                    }
+
+                    // Valid options
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("SUBLIME_OPTIONS", optionsPair.second);
+                    pickerFrag.setArguments(bundle);
+
+                    pickerFrag.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+                    pickerFrag.show(getChildFragmentManager(), "SUBLIME_PICKER");
+
+                    ViewUtils.clearFocus(searchgoodsTvActureconstrustion,fab);
+                }
+            }
+
+
+        });
+
+        searchgoodsTvTimmodel.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    openBottomSheet();
+
+                    ViewUtils.clearFocus(searchgoodsTvTimmodel,fab);
+                }
+            }
+        });
     }
 
+    public void openBottomSheet() {
+        initBottomSheet();
+
+        initAdapter();
+
+        mPresenter.getFileModel(user.getId());
+    }
+
+    private void initAdapter() {
+        adapter = new RecyclerAdapter<CODE_SPEC>(getContext(), R.layout.common_adp_siglecentertext) {
+            @Override
+            protected void convert(final RecyclerAdapterHelper helper, final CODE_SPEC info) {
+                final int position = helper.getAdapterPosition();
+                helper.setText(R.id.tv_string, info.getGRMXH()).getItemView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        searchgoodsTvTimmodel.setText(info.getGRMXH());
+                        fileModelId = info.getId();
+                        dialog.dismiss();
+                    }
+                });
+                helper.getItemView().setTag(TAG);
+            }
+        };
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void initBottomSheet() {
+        recyclerView = (RecyclerView) LayoutInflater.from(getActivity())
+                .inflate(R.layout.common_bs_list, null);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        recyclerView.addItemDecoration(new HorizontalItemDecoration
+                .Builder(getContext())
+                .colorResId(R.color.gray_88)
+                .showLastDivider(true)
+                .sizeResId(R.dimen.height_explore_divider_1)
+                .build());
+    }
+
+    SublimePickerFragment.Callback mFragmentCallback = new SublimePickerFragment.Callback() {
+        @Override
+        public void onCancelled() {
+        }
+
+        @Override
+        public void onDateTimeRecurrenceSet(SelectedDate selectedDate,
+                                            int hourOfDay, int minute,
+                                            SublimeRecurrencePicker.RecurrenceOption recurrenceOption,
+                                            String recurrenceRule) {
+            String temp = DateUtils.calendarToString(selectedDate.getStartDate(),DateUtils.F20) + " " + hourOfDay + ":" + minute;
+            searchgoodsTvOrdertime.setText(temp);
+        }
+    };
+
+    SublimePickerFragment.Callback mFragmentTrueCallback = new SublimePickerFragment.Callback() {
+        @Override
+        public void onCancelled() {
+        }
+
+        @Override
+        public void onDateTimeRecurrenceSet(SelectedDate selectedDate,
+                                            int hourOfDay, int minute,
+                                            SublimeRecurrencePicker.RecurrenceOption recurrenceOption,
+                                            String recurrenceRule) {
+            String temp = DateUtils.calendarToString(selectedDate.getStartDate(),DateUtils.F20) + " " + hourOfDay + ":" + minute;
+            searchgoodsTvActureconstrustion.setText(temp);
+        }
+    };
+
     private void search(){
-        mPresenter.searchTask();
+        OrderInfoAPI infoAPI = new OrderInfoAPI();
+        infoAPI.setStrTjsj(searchgoodsTvOrdertime.getText().toString());
+        infoAPI.setCardNo(searchgoodsTvCarframeno.getText().toString());
+        infoAPI.setGrmxh(String.valueOf(fileModelId));
+        infoAPI.setStrSgsj(searchgoodsTvActureconstrustion.getText().toString());
+        Intent intent = new Intent(getActivity(), SearchListActivity.class);
+        intent.putExtra(SearchListActivity.INTENTNAME_SEARCHINFO,infoAPI);
+        startActivity(intent);
     }
 
     @Override
@@ -132,6 +311,16 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     @Override
     public void searchFaild() {
 
+    }
+
+    @Override
+    public void setFileModel(List<CODE_SPEC> array) {
+        if(adapter.getSize() == 0){
+            adapter.addAll(array);
+            dialog = new BottomSheetDialog(getActivity());
+            dialog.setContentView(recyclerView);
+            dialog.show();
+        }
     }
 
 }

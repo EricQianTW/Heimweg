@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.hmwg.main.dial.DialActivity"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout

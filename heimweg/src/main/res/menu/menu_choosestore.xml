@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.hmwg.main.choosestores.ChooseStoresActivity">
+
+    <item android:id="@+id/action_province"
+        android:title="@string/common_province"
+        android:orderInCategory="80"
+        android:icon="@drawable/location"
+        app:showAsAction="always" />
+</menu>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">德国汉威</string>
+    <string name="app_name">仁孚在线</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -7,6 +7,7 @@
     <string name="action_settings">Settings</string>
     <string name="menu_search">Search</string>
     <string name="menu_notifications">Notifications</string>
+    <string name="common_province">省份</string>
 
     <!-- 欢迎页面 start-->
     <string name="title_activity_welcome">WelcomeActivity</string>
@@ -39,6 +40,7 @@
 
     <!--订货 start　-->
     <string name="title_activity_ordergoods">我要订货</string>
+    <string name="ordergoods_tv_store">网点</string>
     <string name="ordergoods_tv_ordertime">时间</string>
     <string name="ordergoods_tv_carframeno">车架号</string>
     <string name="ordergoods_tv_timmodel">隔热膜型号</string>
@@ -46,10 +48,12 @@
     <string name="ordergoods_tv_phone">手机号</string>
     <string name="ordergoods_tv_deliveraddress">送货地址</string>
     <string name="ordergoods_tv_expcartime">预计提车时间</string>
+    <string name="ordergoods_tv_shijishigongtime">实际施工时间</string>
     <!--订货 end　-->
 
     <!-- 我要查单　start -->
     <string name="title_activity_searchgoods">我要查单</string>
+    <string name="title_activity_searchlist">查单结果</string>
     <string name="searchgoods_tv_ordertime">时间</string>
     <string name="searchgoods_tv_carframeno">车架号</string>
     <string name="searchgoods_tv_timmodel">隔热膜型号</string>
@@ -60,5 +64,11 @@
     <string name="title_activity_dial">天使如愿盘</string>
 
     <!-- 我要查单　end -->
+
+    <!-- 选择门店　start -->
+    <string name="title_activity_store">选择门店</string>
+    <string name="title_activity_provice">选择省份</string>
+
+    <!-- 选择门店　end -->
 
 </resources>

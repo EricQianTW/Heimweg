@@ -1,6 +1,7 @@
 package com.hmwg.utils;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.text.ParseException;
 
@@ -9,9 +10,20 @@ import java.text.ParseException;
  */
 public class DateUtils {
     public static String F19 = "yyyy-MM-dd HH:mm:ss";
+    public static String F20 = "yyyy-MM-dd";
     public static String F17 = "yyyyMMddHHmmssSSS";
     public static String F14 = "yyyyMMddHHmmss";
     public static String F8 = "yyyyMMdd";
+
+    /**
+     *
+     * @param cal
+     * @return
+     */
+    public static String calendarToString(final Calendar cal,String formatStr) {
+        final SimpleDateFormat dateFormat = new SimpleDateFormat(formatStr);
+        return dateFormat.format(cal.getTime());
+    }
 
     /*
      * Change date to format string.

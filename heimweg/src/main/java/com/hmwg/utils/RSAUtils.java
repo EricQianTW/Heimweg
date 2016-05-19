@@ -37,7 +37,7 @@ public class RSAUtils {
         String result = "";
         try {
             result = URLEncoder.encode(sign(info.toString(), Constant.RSA_PRIVATE_KEY), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return result;

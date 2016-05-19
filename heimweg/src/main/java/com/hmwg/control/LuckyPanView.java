@@ -40,13 +40,15 @@ public class LuckyPanView extends SurfaceView implements Callback, Runnable
 	/**
 	 * 抽奖的文字
 	 */
-	private String[] mStrs = new String[] { "单反相机", "IPAD", "恭喜发财", "IPHONE",
+	private String[] mStrs = new String[] { "单反相机", "IPAD", "恭喜发财恭喜发财恭喜发财恭喜发财", "IPHONE",
+			"妹子一只", "恭喜发财","单反相机", "IPAD", "恭喜发财", "IPHONE",
 			"妹子一只", "恭喜发财" };
 	/**
 	 * 每个盘块的颜色
 	 */
 	private int[] mColors = new int[] { 0xFFFFC300, 0xFFF17E01, 0xFFFFC300,
-			0xFFF17E01, 0xFFFFC300, 0xFFF17E01 };
+			0xFFF17E01, 0xFFFFC300, 0xFFF17E01,0xFFFFC300, 0xFFF17E01, 0xFFFFC300,
+			0xFFF17E01, 0xFFFFC300, 0xFFF17E01  };
 	/**
 	 * 与文字对应的图片
 	 */
@@ -58,10 +60,12 @@ public class LuckyPanView extends SurfaceView implements Callback, Runnable
 	 * 与文字对应图片的bitmap数组
 	 */
 	private Bitmap[] mImgsBitmap;
+
 	/**
 	 * 盘块的个数
 	 */
-	private int mItemCount = 6;
+	private int mItemCount = mStrs.length;
+//	private int mItemCount = 6;
 
 	/**
 	 * 绘制盘块的范围
@@ -171,12 +175,12 @@ public class LuckyPanView extends SurfaceView implements Callback, Runnable
 				+ getPaddingLeft(), mRadius + getPaddingLeft());
 
 		// 初始化图片
-		mImgsBitmap = new Bitmap[mItemCount];
-		for (int i = 0; i < mItemCount; i++)
-		{
-			mImgsBitmap[i] = BitmapFactory.decodeResource(getResources(),
-					mImgs[i]);
-		}
+//		mImgsBitmap = new Bitmap[mItemCount];
+//		for (int i = 0; i < mItemCount; i++)
+//		{
+//			mImgsBitmap[i] = BitmapFactory.decodeResource(getResources(),
+//					mImgs[i]);
+//		}
 
 		// 开启线程
 		isRunning = true;
@@ -248,8 +252,8 @@ public class LuckyPanView extends SurfaceView implements Callback, Runnable
 							mArcPaint);
 					// 绘制文本
 					drawText(tmpAngle, sweepAngle, mStrs[i]);
-					// 绘制Icon
-					drawIcon(tmpAngle, i);
+//					// 绘制Icon
+//					drawIcon(tmpAngle, i);
 
 					tmpAngle += sweepAngle;
 				}

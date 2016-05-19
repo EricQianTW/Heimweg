@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="com.hmwg.main.ordergoods.OrderGoodsActivity">
 
@@ -47,6 +45,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/ordergoods_tv_ordertime"
+                        android:imeOptions="actionNext"
+                        android:inputType="none"
+                        android:completionThreshold="1"
+                        android:maxLines="1"
+                        android:enabled="false"
+                        android:focusable="false"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/ordergoods_tv_store"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/ordergoods_tv_store"
                         android:imeOptions="actionNext"
                         android:inputType="none"
                         android:completionThreshold="1"
@@ -122,21 +139,6 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/ordergoods_tv_deliveraddress"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/ordergoods_tv_deliveraddress"
-                        android:inputType="none"
-                        android:maxLines="1"
-                        android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
                     android:id="@+id/ordergoods_til_expcartime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -152,18 +154,16 @@
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    android:layout_margin="@dimen/fab_margin"
-                    android:src="@mipmap/icon_button_ok" />
             </LinearLayout>
-
         </ScrollView>
     </LinearLayout>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@mipmap/icon_button_ok" />
 
 </android.support.design.widget.CoordinatorLayout>

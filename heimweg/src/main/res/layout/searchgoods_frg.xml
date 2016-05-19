@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="com.hmwg.main.searchorder.SearchOrderActivity">
 
@@ -42,13 +41,12 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/searchgoods_tv_ordertime"
+                        android:id="@+id/searchgoods_tv_carframeno"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/searchgoods_tv_ordertime"
+                        android:hint="@string/searchgoods_tv_carframeno"
                         android:imeOptions="actionNext"
                         android:inputType="none"
-                        android:completionThreshold="1"
                         android:maxLines="1"
                         android:singleLine="true" />
 
@@ -59,12 +57,13 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/searchgoods_tv_carframeno"
+                        android:id="@+id/searchgoods_tv_ordertime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/searchgoods_tv_carframeno"
+                        android:hint="@string/searchgoods_tv_ordertime"
                         android:imeOptions="actionNext"
                         android:inputType="none"
+                        android:completionThreshold="1"
                         android:maxLines="1"
                         android:singleLine="true" />
 
@@ -96,21 +95,21 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/searchgoods_tv_actureconstrustion"
                         android:imeOptions="actionNext"
-                        android:inputType="textPassword"
+                        android:inputType="none"
                         android:maxLines="1"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    android:layout_margin="@dimen/fab_margin"
-                    android:src="@android:drawable/ic_dialog_email" />
-
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@mipmap/icon_search" />
 </android.support.design.widget.CoordinatorLayout>

@@ -8,7 +8,7 @@ android {
         applicationId "com.hmwg.eric"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 1
+        versionCode 20170503
         versionName "1.0"
     }
     buildTypes {
@@ -32,7 +32,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:design:23.3.0'
     compile 'com.google.android.gms:play-services-appindexing:8.1.0'
     compile 'com.google.code.gson:gson:2.3.1'
     compile 'com.jakewharton:butterknife:7.0.0'
@@ -54,4 +54,5 @@ dependencies {
     compile 'com.github.tianzhijiexian:logger:1.1.7'
 
     compile 'com.appeaser.sublimepickerlibrary:sublimepickerlibrary:2.1.1'
+    compile 'com.github.thepacific:adapter:1.0.5'
 }

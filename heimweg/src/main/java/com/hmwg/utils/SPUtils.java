@@ -12,6 +12,9 @@ import java.util.Map;
 public class SPUtils
 {
 	public static final String SP_LOGIN_INFO = "sp_login_info";
+	public static final String SP_LOCATION_INFO = "sp_location_info";
+	public static final String SP_STORE_INFO = "sp_store_info";
+	public static final String SP_STOREID_INFO = "sp_storeid_info";
 
 	public SPUtils()
 	{
@@ -74,24 +77,20 @@ public class SPUtils
 		SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
 				Context.MODE_PRIVATE);
 
-		if (defaultObject instanceof String)
-		{
+		if (defaultObject instanceof String) {
 			return sp.getString(key, (String) defaultObject);
-		} else if (defaultObject instanceof Integer)
-		{
+		} else if (defaultObject instanceof Integer) {
 			return sp.getInt(key, (Integer) defaultObject);
-		} else if (defaultObject instanceof Boolean)
-		{
+		} else if (defaultObject instanceof Boolean) {
 			return sp.getBoolean(key, (Boolean) defaultObject);
-		} else if (defaultObject instanceof Float)
-		{
+		} else if (defaultObject instanceof Float) {
 			return sp.getFloat(key, (Float) defaultObject);
-		} else if (defaultObject instanceof Long)
-		{
+		} else if (defaultObject instanceof Long) {
 			return sp.getLong(key, (Long) defaultObject);
+		} else {
+			return null;
 		}
 
-		return null;
 	}
 
 	/**

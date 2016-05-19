@@ -3,14 +3,9 @@ package com.hmwg.main.register;
 import android.support.annotation.NonNull;
 
 import com.hmwg.base.BasePresenter;
-import com.hmwg.bean.EmployeeInfo;
-import com.hmwg.bean.OrderInfo;
-import com.hmwg.bean.ResBoolean;
 import com.hmwg.bean.User;
 import com.hmwg.common.Constant;
 import com.hmwg.utils.GSONUtils;
-import com.hmwg.utils.L;
-import com.hmwg.utils.T;
 import com.orhanobut.logger.Logger;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
