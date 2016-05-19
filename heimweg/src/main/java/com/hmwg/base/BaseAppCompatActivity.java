@@ -4,6 +4,12 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -27,6 +33,7 @@ import com.hmwg.eric.R;
 import com.hmwg.utils.GSONUtils;
 import com.hmwg.utils.IntentUtils;
 import com.hmwg.utils.SPUtils;
+import com.hmwg.utils.T;
 import com.hmwg.utils.ValidationUtils;
 import com.hmwg.utils.ViewUtils;
 
@@ -52,12 +59,21 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     // 设备ID
     public static String serialNumber = android.os.Build.SERIAL;
 
+    private TextView tvNetconnection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         validation = new ValidationUtils(this);
         // 添加Activity到堆栈
         AppManager.getAppManager().addActivity(this);
+
+        registerReceiver();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     @Override
@@ -79,11 +95,14 @@ public class BaseAppCompatActivity extends AppCompatActivity {
                 }
             }
         }
+
+        tvNetconnection = (TextView) findViewById(R.id.tv_netconnection);
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver();
     }
 
     /**
@@ -194,5 +213,36 @@ public class BaseAppCompatActivity extends AppCompatActivity {
             user = GSONUtils.fromJson(SPUtils.get(BaseAppCompatActivity.this, SPUtils.SP_LOGIN_INFO, "").toString(), EmployeeInfo.class);
         }
         return user;
+    }
+
+    class ConnectionChangeReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            ConnectivityManager connectivityManager=(ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo mobNetInfo=connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+            NetworkInfo  wifiNetInfo=connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+
+            if (!mobNetInfo.isConnected() && !wifiNetInfo.isConnected()) {
+                T.showShort(context, "网络不可用，请检查网络设置");
+                if(tvNetconnection != null){
+                    tvNetconnection.setVisibility(View.VISIBLE);
+                }
+            }else {
+                if(tvNetconnection != null){
+                    tvNetconnection.setVisibility(View.GONE);
+                }
+            }
+        }
+    }
+
+    protected ConnectionChangeReceiver myReceiver;
+    protected  void registerReceiver(){
+        IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        myReceiver=new ConnectionChangeReceiver();
+        this.registerReceiver(myReceiver, filter);
+    }
+
+    protected  void unregisterReceiver(){
+        this.unregisterReceiver(myReceiver);
     }
 }

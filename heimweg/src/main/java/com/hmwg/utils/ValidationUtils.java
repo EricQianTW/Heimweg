@@ -13,6 +13,9 @@ import android.widget.Spinner;
 
 import com.hmwg.eric.R;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by eric on 16-2-22.
  */
@@ -72,5 +75,28 @@ public class ValidationUtils {
      */
     public String isEmptyMessage(int resourceId){
         return mContext.getString(resourceId) + mContext.getString(R.string.error_isempty);
+    }
+
+    /**
+     * 不是电话号码
+     * @param view
+     * @param message
+     * @return
+     */
+    public boolean isNotMobileNumber(EditText view, String message) {
+        Pattern p = Pattern.compile("^1\\d{10}$");
+        Matcher m = p.matcher(view.getText().toString());
+        if(!m.matches()){
+            view.setError(message);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 控件不是电话号码错误信息
+     */
+    public String isNotMobileNumberMessage(int resourceId){
+        return mContext.getString(resourceId) + mContext.getString(R.string.error_isnotmobile);
     }
 }

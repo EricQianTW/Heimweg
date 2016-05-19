@@ -17,172 +17,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7e4a337-7634-4321-bc0d-e599ff24fd35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/drawable-hdpi/frame2.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/drawable-hdpi/frame3.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/drawable-hdpi/homepagemenuheadviewimg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/drawable-hdpi/icon_img.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/drawable-hdpi/location.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/drawable-ldpi/arrow_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/mipmap-hdpi/icon_delete.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/mipmap-hdpi/icon_search.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/adapter_1_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/glide_3_7_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/bean/CODE_SPEC.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/bean/LocationInfo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/bean/OrderInfoAPI.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/bean/SaleList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/bean/SingleText.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/DialogViewUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/UpdateVersion/LoadAnsyReadVersionXML.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/UpdateVersion/VersionMsg.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/pacificadapter/FlexibleDecoration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/pacificadapter/HorizontalItemDecoration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/pacificadapter/SpacesItemDecoration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/pacificadapter/VerticalItemDecoration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/choosestores/ChooseStoresActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/choosestores/ChooseStoresContract.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/choosestores/ChooseStoresFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/choosestores/ChooseStoresPresenter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/location/LocationActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/location/LocationContract.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/location/LocationFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/location/LocationPresenter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchdetail/SearchDetailActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchdetail/SearchDetailContract.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchdetail/SearchDetailFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchdetail/SearchDetailPresenter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchlist/SearchListActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchlist/SearchListContract.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchlist/SearchListFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchlist/SearchListPresenter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/drawable/btn_frame.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/drawable/btn_red.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/drawable/listitem_click.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/choosestore_act.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/choosestore_frg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/common_adp_siglecentertext.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/common_adp_siglelefttext.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/common_bs_list.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/common_prompt_noneview.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/common_prompt_textview.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/location_act.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/location_frg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/searchdetail_act.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/searchdetail_frg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/searchlist_act.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/searchlist_adp.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/searchlist_frg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/menu/menu_choosestore.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/glide_3_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/proguard-rules.pro" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/yzyh/eric/ApplicationTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/activity/MainActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/activity/WelcomeActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/base/BaseActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/base/BaseAppCompatActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/base/BaseApplication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/common/Constant.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/AppUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/DensityUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/HttpUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/IntentUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/KeyBoardUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/L.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/NetUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/SDCardUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/SPUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/ScreenUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/T.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/efficientadapter/lib/adapter/AdapterHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/efficientadapter/lib/adapter/EfficientAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/efficientadapter/lib/adapter/EfficientPagerAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/efficientadapter/lib/adapter/EfficientRecyclerAdapter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/efficientadapter/lib/util/EfficientCacheView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/efficientadapter/lib/util/ViewHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/yzyh/utils/efficientadapter/lib/viewholder/EfficientViewHolder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_camera.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_gallery.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_manage.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_send.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_share.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_menu_slideshow.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/side_nav_bar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_welcome.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/menu/main.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/test/java/com/yzyh/eric/ExampleUnitTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/bean/OrderInfo.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_3_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_3_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/design_23_3_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_3_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_3_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_3_0.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_3_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/common_netconnect.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.8/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/build.gradle" afterPath="$PROJECT_DIR$/heimweg/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/heimweg.iml" afterPath="$PROJECT_DIR$/heimweg/heimweg.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseActivity.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseAppCompatActivity.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseAppCompatActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseFragment.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/LuckyPanView.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/LuckyPanView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/login/LoginPresenter.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/login/LoginPresenter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsActivity.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsContract.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsContract.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsFragment.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsPresenter.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/register/RegisterContract.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/register/RegisterContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/register/RegisterPresenter.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/register/RegisterPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchorder/SearchOrderContract.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchorder/SearchOrderContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchorder/SearchOrderFragment.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchorder/SearchOrderFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchorder/SearchOrderPresenter.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchorder/SearchOrderPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/welcome/WelcomeActivity.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/welcome/WelcomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/AppUtils.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/AppUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/DateUtils.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/DateUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/RSAUtils.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/RSAUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/SPUtils.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/SPUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/ViewUtils.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/ViewUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/dial_act.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/dial_act.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/dial_frg.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/dial_frg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/login_act.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/login_act.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/login_frg.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/login_frg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/nav_header_main.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/nav_header_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/ordergoods_frg.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/ordergoods_frg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/register_act.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/register_act.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/register_frg.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/register_frg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/searchgoods_act.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/searchgoods_act.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/searchgoods_frg.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/searchgoods_frg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/welcome_act.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/welcome_act.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/menu/activity_main_drawer.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/menu/activity_main_drawer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/values-v21/styles.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/values-v21/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/ValidationUtils.java" afterPath="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/ValidationUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/layout/ordergoods_act.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/layout/ordergoods_act.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/values/errormessage.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/values/errormessage.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heimweg/src/main/res/values/text_style.xml" afterPath="$PROJECT_DIR$/heimweg/src/main/res/values/text_style.xml" />
     </list>
     <ignored path="Heimweg.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -223,21 +71,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BaseAppCompatActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseAppCompatActivity.java">
+      <file leaf-file-name="OrderGoodsFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="73" column="49" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.62015504">
+              <caret line="303" column="112" selection-start-line="303" selection-start-column="112" selection-end-line="303" selection-end-column="112" />
+              <folding>
+                <element signature="e#8412#8444#0" expanded="true" />
+                <element signature="e#10292#10324#0" expanded="true" />
+                <element signature="e#10493#10526#0" expanded="true" />
+                <element signature="e#10694#10725#0" expanded="true" />
+                <element signature="e#10895#10930#0" expanded="true" />
+                <element signature="e#11097#11125#0" expanded="true" />
+                <element signature="e#11498#11531#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.5294118">
+              <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderGoodsActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsActivity.java">
+      <file leaf-file-name="ValidationUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/ValidationUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6938776">
-              <caret line="84" column="47" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="98" column="42" selection-start-line="98" selection-start-column="18" selection-end-line="98" selection-end-column="42" />
+              <folding>
+                <element signature="e#1879#1921#0" expanded="true" />
+                <element signature="e#2465#2511#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="errormessage.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/values/errormessage.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.875">
+              <caret line="3" column="35" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -1986,13 +1865,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchlist/SearchListActivity.java" />
-        <option value="$PROJECT_DIR$/heimweg/src/main/res/layout/searchlist_adp.xml" />
-        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchdetail/SearchListPresenter.java" />
-        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchdetail/SearchDetailActivity.java" />
-        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchorder/SearchOrderFragment.java" />
         <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchlist/SearchListPresenter.java" />
-        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsFragment.java" />
         <option value="$PROJECT_DIR$/heimweg/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/heimweg/src/main/res/layout/searchdetail_act.xml" />
         <option value="$PROJECT_DIR$/heimweg/src/main/res/layout/searchgoods_act.xml" />
@@ -2024,10 +1897,7 @@
         <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchdetail/SearchDetailFragment.java" />
         <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/LuckyPanView.java" />
         <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/login/LoginPresenter.java" />
-        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsActivity.java" />
         <option value="$PROJECT_DIR$/heimweg/src/main/res/layout/nav_header_main.xml" />
-        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseAppCompatActivity.java" />
-        <option value="$PROJECT_DIR$/heimweg/src/main/res/layout/ordergoods_act.xml" />
         <option value="$PROJECT_DIR$/heimweg/src/main/res/menu/activity_main_drawer.xml" />
         <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/LoadAnsyReadVersionXML.java" />
         <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/UpdateVersion/FileCallback.java" />
@@ -2037,6 +1907,15 @@
         <option value="$PROJECT_DIR$/heimweg/build.gradle" />
         <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/UpdateVersion/LoadAnsyReadVersionXML.java" />
         <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/welcome/WelcomeActivity.java" />
+        <option value="$PROJECT_DIR$/heimweg/src/main/res/layout/commo_netconnect.xml" />
+        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseAppCompatActivity.java" />
+        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsActivity.java" />
+        <option value="$PROJECT_DIR$/heimweg/src/main/res/layout/ordergoods_act.xml" />
+        <option value="$PROJECT_DIR$/heimweg/src/main/res/values/text_style.xml" />
+        <option value="$PROJECT_DIR$/heimweg/src/main/res/layout/common_netconnect.xml" />
+        <option value="$PROJECT_DIR$/heimweg/src/main/res/values/errormessage.xml" />
+        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/ValidationUtils.java" />
+        <option value="$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsFragment.java" />
       </list>
     </option>
   </component>
@@ -2070,6 +1949,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2090,6 +1972,28 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="heimweg" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Heimweg" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heimweg" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2207,23 +2111,9 @@
               <option name="myItemId" value="heimweg" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hmwg" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2244,7 +2134,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2561,14 +2450,14 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21001616" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24719101" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33386838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CodotaView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38523275" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2520064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2585,7 +2474,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21001616" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32744783" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2608,24 +2497,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/UpdateVersion/LoadAnsyReadVersionXML.java</url>
-          <line>103</line>
-          <properties />
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/UpdateVersion/VersionMsg.java</url>
-          <line>16</line>
-          <properties />
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="73" />
+      <option name="time" value="74" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="heimweg">
@@ -2634,74 +2509,20 @@
         <watch expression="nav_view" />
         <watch expression="nav_view.findViewById(R.id.tv_username)" />
         <watch expression="AppUtils.getPackageName(context)" />
+        <watch expression="findViewById(R.id.tv_netconnection)" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/register_frg.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1320754">
-          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/searchdetail_act.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3773584">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/searchgoods_act.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6981132">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/searchlist_act.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6981132">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/searchlist_adp.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1320754">
-          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/welcome_act.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5325444">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchdetail/SearchDetailActivity.java">
@@ -2711,23 +2532,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0588236">
-          <caret line="50" column="48" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/mipmap-hdpi/icon_delete.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/searchdetail_frg.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.0">
           <caret line="175" column="49" selection-start-line="175" selection-start-column="49" selection-end-line="175" selection-end-column="49" />
@@ -2736,16 +2546,19 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/searchlist_frg.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/searchlist_frg.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.6037736">
           <caret line="24" column="48" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="48" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/mipmap-hdpi/ic_search.png">
@@ -2754,14 +2567,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/searchgoods_frg.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.5094337">
           <caret line="114" column="50" selection-start-line="114" selection-start-column="50" selection-end-line="114" selection-end-column="50" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchdetail/SearchDetailPresenter.java">
@@ -2812,6 +2625,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.875">
           <caret line="3" column="44" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2827,29 +2641,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5">
           <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/common_prompt_textview.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.5660377">
           <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/common_prompt_noneview.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/common_prompt_noneview.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7169812">
           <caret line="31" column="44" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="44" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/searchdetail/SearchDetailFragment.java">
@@ -2867,14 +2682,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/dial_frg.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.773585">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/drawable-hdpi/danfan.png">
@@ -2916,6 +2731,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2923,29 +2739,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/ordergoods_act.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/nav_header_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/menu/activity_main_drawer.xml">
@@ -2984,7 +2790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3323263">
           <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2996,28 +2801,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/UpdateVersion/VersionMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -3030,34 +2817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/UpdateVersion/LoadAnsyReadVersionXML.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="217" column="44" selection-start-line="217" selection-start-column="21" selection-end-line="217" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1278#1279#0" expanded="true" />
-            <element signature="e#1303#1304#0" expanded="true" />
-            <element signature="e#3350#3384#0" expanded="true" />
-            <element signature="e#3859#4028#0" expanded="true" />
-            <element signature="e#4027#4028#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/welcome/WelcomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#1860#2060#0" expanded="true" />
-            <element signature="e#2059#2060#0" expanded="true" />
-            <element signature="e#2107#2345#0" expanded="true" />
-            <element signature="e#2344#2345#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3066,19 +2825,132 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/UpdateVersion/LoadAnsyReadVersionXML.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/welcome/WelcomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/control/UpdateVersion/VersionMsg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/ordergoods_act.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9245283">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/values/text_style.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1176472">
+          <caret line="269" column="12" selection-start-line="269" selection-start-column="12" selection-end-line="269" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/layout/common_netconnect.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2641509">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/base/BaseAppCompatActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="49" selection-start-line="73" selection-start-column="49" selection-end-line="73" selection-end-column="49" />
-          <folding />
+          <caret line="212" column="87" selection-start-line="212" selection-start-column="87" selection-end-line="212" selection-end-column="87" />
+          <folding>
+            <element signature="e#2279#2280#0" expanded="false" />
+            <element signature="e#2310#2311#0" expanded="false" />
+            <element signature="e#9161#9162#0" expanded="false" />
+            <element signature="e#9212#9213#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6938776">
-          <caret line="84" column="47" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+          <folding>
+            <element signature="e#2038#2039#0" expanded="true" />
+            <element signature="e#2071#2072#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5294118">
+          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/res/values/errormessage.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/utils/ValidationUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="98" column="42" selection-start-line="98" selection-start-column="18" selection-end-line="98" selection-end-column="42" />
+          <folding>
+            <element signature="e#1879#1921#0" expanded="true" />
+            <element signature="e#2465#2511#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heimweg/src/main/java/com/hmwg/main/ordergoods/OrderGoodsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62015504">
+          <caret line="303" column="112" selection-start-line="303" selection-start-column="112" selection-end-line="303" selection-end-column="112" />
+          <folding>
+            <element signature="e#8412#8444#0" expanded="true" />
+            <element signature="e#10292#10324#0" expanded="true" />
+            <element signature="e#10493#10526#0" expanded="true" />
+            <element signature="e#10694#10725#0" expanded="true" />
+            <element signature="e#10895#10930#0" expanded="true" />
+            <element signature="e#11097#11125#0" expanded="true" />
+            <element signature="e#11498#11531#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

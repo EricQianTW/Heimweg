@@ -301,6 +301,10 @@ public class OrderGoodsFragment extends BaseFragment implements OrderGoodsContra
             focusView = ordergoodsTvPhone;
             return true;
         }
+        if (validation.isNotMobileNumber(ordergoodsTvPhone, validation.isNotMobileNumberMessage(R.string.ordergoods_tv_phone))) {
+            focusView = ordergoodsTvPhone;
+            return true;
+        }
         if (validation.isEmpty(ordergoodsTvExpcartime, validation.isEmptyMessage(R.string.ordergoods_tv_expcartime))) {
             focusView = ordergoodsTvExpcartime;
             return true;

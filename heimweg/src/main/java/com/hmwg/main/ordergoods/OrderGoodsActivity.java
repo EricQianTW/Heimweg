@@ -5,7 +5,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -29,6 +28,8 @@ public class OrderGoodsActivity extends BaseAppCompatActivity implements Navigat
     NavigationView navView;
     @Bind(R.id.drawer_layout)
     DrawerLayout drawerLayout;
+    @Bind(R.id.tv_netconnection)
+    TextView tvNetconnection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +56,14 @@ public class OrderGoodsActivity extends BaseAppCompatActivity implements Navigat
     protected void onResume() {
         super.onResume();
 
-        if("".equals(SPUtils.get(getApplicationContext(),SPUtils.SP_STORE_INFO,""))){
-            IntentUtils.startActivity(this,ChooseStoresActivity.class);
+        if ("".equals(SPUtils.get(getApplicationContext(), SPUtils.SP_STORE_INFO, ""))) {
+            IntentUtils.startActivity(this, ChooseStoresActivity.class);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     private void initAction() {
