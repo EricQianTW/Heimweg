@@ -11,13 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 
 import com.hmwg.base.BaseFragment;
 import com.hmwg.bean.OrderInfoAPI;
 import com.hmwg.control.pacificadapter.HorizontalItemDecoration;
 import com.hmwg.eric.R;
 import com.hmwg.main.searchdetail.SearchDetailActivity;
+import com.orhanobut.logger.Logger;
 import com.pacific.adapter.RecyclerAdapter;
 import com.pacific.adapter.RecyclerAdapterHelper;
 
@@ -41,10 +41,6 @@ public class SearchListFragment extends BaseFragment implements SearchListContra
     private RecyclerAdapter<OrderInfoAPI> adapter;
     private OrderInfoAPI infoAPI;
 
-    public SearchListFragment() {
-        new SearchListPresenter(this);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,25 +60,23 @@ public class SearchListFragment extends BaseFragment implements SearchListContra
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initView();
-        initAdapter();
-        initBottomSheet();
-        initAction();
-    }
-
-    private void initView() {
-
-    }
-
-    private void initData(){
-        mPresenter.searchTask(user.getId(),infoAPI);
+        try {
+            initAdapter();
+            initBottomSheet();
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
         mPresenter.start();
-        initData();
+        try {
+            initData();
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @Override
@@ -91,15 +85,19 @@ public class SearchListFragment extends BaseFragment implements SearchListContra
         ButterKnife.unbind(this);
     }
 
+    public SearchListFragment() {
+        new SearchListPresenter(this);
+    }
+
+    private void initData() throws Exception{
+        mPresenter.searchTask(user.getId(),infoAPI);
+    }
+
     public static SearchListFragment newInstance() {
         return new SearchListFragment();
     }
 
-    private void initAction() {
-
-    }
-
-    private void initAdapter() {
+    private void initAdapter() throws Exception{
         adapter = new RecyclerAdapter<OrderInfoAPI>(getContext(), R.layout.searchlist_adp) {
             @Override
             protected void convert(final RecyclerAdapterHelper helper, final OrderInfoAPI info) {
@@ -119,7 +117,7 @@ public class SearchListFragment extends BaseFragment implements SearchListContra
         };
     }
 
-    private void initBottomSheet() {
+    private void initBottomSheet() throws Exception{
         rvIcon.setItemAnimator(new DefaultItemAnimator());
         rvIcon.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         rvIcon.addItemDecoration(new HorizontalItemDecoration
@@ -137,9 +135,13 @@ public class SearchListFragment extends BaseFragment implements SearchListContra
 
     @Override
     public void searchSuccess(List<OrderInfoAPI> infoAPIs) {
-        if(infoAPIs != null){
-            adapter.clear();
-            adapter.addAll(infoAPIs);
+        try {
+            if(infoAPIs != null){
+                adapter.clear();
+                adapter.addAll(infoAPIs);
+            }
+        } catch (Exception e) {
+            Logger.e(e, TAG);
         }
     }
 

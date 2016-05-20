@@ -14,7 +14,6 @@ import java.util.List;
 public interface LocationContract {
 
     interface View extends BaseInterfaceView<Presenter> {
-        void setLocation();
     }
 
     interface Presenter extends BaseInterfacePresenter {

@@ -13,6 +13,7 @@ import com.hmwg.utils.ActivityUtils;
 import com.hmwg.utils.IntentUtils;
 import com.hmwg.utils.SPUtils;
 import com.hmwg.utils.T;
+import com.orhanobut.logger.Logger;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,39 +33,47 @@ public class ChooseStoresActivity extends BaseAppCompatActivity {
         setContentView(R.layout.choosestore_act);
         ButterKnife.bind(this);
 
-        initCompatView();
-        initBack();
+        try {
+            initCompatView();
+            initBack();
 
-        ChooseStoresFragment loginFragment = (ChooseStoresFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+            ChooseStoresFragment loginFragment = (ChooseStoresFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
 
-        if (loginFragment == null) {
-            loginFragment = ChooseStoresFragment.newInstance();
+            if (loginFragment == null) {
+                loginFragment = ChooseStoresFragment.newInstance();
 
-            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
-                    loginFragment, R.id.contentFrame);
-        }
-
-        // Create the presenter
-        new ChooseStoresPresenter(loginFragment);
-
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.action_province:
-                        IntentUtils.startActivity(getActivity(),LocationActivity.class);
-                        break;
-                }
-                return true;
+                ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
+                        loginFragment, R.id.contentFrame);
             }
-        });
+
+            // Create the presenter
+            new ChooseStoresPresenter(loginFragment);
+
+            toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem menuItem) {
+                    switch (menuItem.getItemId()) {
+                        case R.id.action_province:
+                            IntentUtils.startActivity(getActivity(),LocationActivity.class);
+                            break;
+                    }
+                    return true;
+                }
+            });
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if ("".equals(SPUtils.get(getApplicationContext(), SPUtils.SP_LOCATION_INFO, ""))) {
-            IntentUtils.startActivity(this, LocationActivity.class);
+        try {
+            if ("".equals(SPUtils.get(getApplicationContext(), SPUtils.SP_LOCATION_INFO, ""))) {
+                IntentUtils.startActivity(this, LocationActivity.class);
+            }
+        } catch (Exception e) {
+            Logger.e(e, TAG);
         }
     }
 

@@ -39,72 +39,89 @@ public class SearchDetailPresenter extends BasePresenter implements SearchDetail
 
     @Override
     public void searchTask(int userId,int orderId) {
-        OkHttpUtils
-                .get()
-                .url(Constant.HTTP_IP)
-                .addParams("_Interface", "Matan.OrderAbout")
-                .addParams("_Method", "MeOrderDtlSearch")
-                .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
-                .addParams("userid", GSONUtils.toJson(userId))
-                .addParams("orderId", GSONUtils.toJson(orderId))
-                .build()
-                .execute(new Callback<String>() {
-                    @Override
-                    public String parseNetworkResponse(Response response) throws Exception {
-                        return response.body().string();
-                    }
-
-                    @Override
-                    public void onError(Call call, Exception e) {
-                        Logger.e(e,"something happend");
-                    }
-
-                    @Override
-                    public void onResponse(String response) {
-                        TypeToken<Message<OrderInfoAPI>> token = new TypeToken<Message<OrderInfoAPI>>() {
-                        };
-                        Message<OrderInfoAPI> dataPackage = GSONUtils.fromJson(response, token);
-                        if(dataPackage.getState() == Constant.OKHTTP_RESULT_SUCESS){
-                            mLoginView.searchSuccess(dataPackage.getBody());
-                        }else{
-                            Logger.e(TAG, dataPackage.getCustomMessage());
+        try {
+            OkHttpUtils
+                    .get()
+                    .url(Constant.HTTP_IP)
+                    .addParams("_Interface", "Matan.OrderAbout")
+                    .addParams("_Method", "MeOrderDtlSearch")
+                    .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
+                    .addParams("userid", GSONUtils.toJson(userId))
+                    .addParams("orderId", GSONUtils.toJson(orderId))
+                    .build()
+                    .connTimeOut(OkHttpUtils.DEFAULT_MILLISECONDS)
+                    .execute(new Callback<String>() {
+                        @Override
+                        public String parseNetworkResponse(Response response) throws Exception {
+                            return response.body().string();
                         }
-                    }
-                });
+
+                        @Override
+                        public void onError(Call call, Exception e) {
+                            Logger.e(e,"something happend");
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                TypeToken<Message<OrderInfoAPI>> token = new TypeToken<Message<OrderInfoAPI>>() {
+                                };
+                                Message<OrderInfoAPI> dataPackage = GSONUtils.fromJson(response, token);
+                                if(dataPackage.getState() == Constant.OKHTTP_RESULT_SUCESS){
+                                    mLoginView.searchSuccess(dataPackage.getBody());
+                                }else{
+                                    Logger.e(TAG, dataPackage.getCustomMessage());
+                                }
+                            } catch (Exception e) {
+                                Logger.e(e, TAG);
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @Override
     public void deleteTask(int userId,int orderId) {
-        OkHttpUtils
-                .get()
-                .url(Constant.HTTP_IP)
-                .addParams("_Interface", "Matan.OrderAbout")
-                .addParams("_Method", "MeOrderRemove")
-                .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
-                .addParams("userid", GSONUtils.toJson(userId))
-                .addParams("OrderId", GSONUtils.toJson(orderId))
-                .build()
-                .execute(new Callback<String>() {
-                    @Override
-                    public String parseNetworkResponse(Response response) throws Exception {
-                        return response.body().string();
-                    }
-
-                    @Override
-                    public void onError(Call call, Exception e) {
-                        Logger.e(e,"something happend");
-                    }
-
-                    @Override
-                    public void onResponse(String response) {
-                        ResBoolean dataPackage = GSONUtils.fromJson(response, ResBoolean.class);
-                        if(dataPackage.getState() == Constant.OKHTTP_RESULT_SUCESS){
-                            mLoginView.deleteSuccess();
-                        }else{
-                            Logger.e(TAG, dataPackage.getCustomMessage());
+        try {
+            OkHttpUtils
+                    .get()
+                    .url(Constant.HTTP_IP)
+                    .addParams("_Interface", "Matan.OrderAbout")
+                    .addParams("_Method", "MeOrderRemove")
+                    .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
+                    .addParams("userid", GSONUtils.toJson(userId))
+                    .addParams("OrderId", GSONUtils.toJson(orderId))
+                    .build()
+                    .connTimeOut(OkHttpUtils.DEFAULT_MILLISECONDS)
+                    .execute(new Callback<String>() {
+                        @Override
+                        public String parseNetworkResponse(Response response) throws Exception {
+                            return response.body().string();
                         }
-                    }
-                });
-    }
 
+                        @Override
+                        public void onError(Call call, Exception e) {
+                            Logger.e(e,"something happend");
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                ResBoolean dataPackage = GSONUtils.fromJson(response, ResBoolean.class);
+                                if(dataPackage.getState() == Constant.OKHTTP_RESULT_SUCESS){
+                                    mLoginView.deleteSuccess();
+                                }else{
+                                    Logger.e(TAG, dataPackage.getCustomMessage());
+                                }
+                            } catch (Exception e) {
+                                Logger.e(e, TAG);
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
+    }
 }

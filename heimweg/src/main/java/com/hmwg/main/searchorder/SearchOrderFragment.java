@@ -6,18 +6,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -25,20 +21,19 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.appeaser.sublimepickerlibrary.datepicker.SelectedDate;
-import com.appeaser.sublimepickerlibrary.helpers.SublimeOptions;
 import com.appeaser.sublimepickerlibrary.recurrencepicker.SublimeRecurrencePicker;
 import com.hmwg.base.BaseFragment;
 import com.hmwg.bean.CODE_SPEC;
 import com.hmwg.bean.OrderInfoAPI;
+import com.hmwg.control.DateTimePicker.DateTimePickerUtils;
 import com.hmwg.control.DateTimePicker.SublimePickerFragment;
 import com.hmwg.control.DateTimePicker.Tools;
 import com.hmwg.control.pacificadapter.HorizontalItemDecoration;
 import com.hmwg.eric.R;
 import com.hmwg.main.searchlist.SearchListActivity;
 import com.hmwg.utils.DateUtils;
-import com.hmwg.utils.T;
-import com.hmwg.utils.ValidationUtils;
 import com.hmwg.utils.ViewUtils;
+import com.orhanobut.logger.Logger;
 import com.pacific.adapter.RecyclerAdapter;
 import com.pacific.adapter.RecyclerAdapterHelper;
 
@@ -77,10 +72,6 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     private BottomSheetDialog dialog;
     private int fileModelId;
 
-    public SearchOrderFragment(){
-        new SearchOrderPresenter(this);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -97,15 +88,12 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initView();
-        initAction();
-    }
-
-    private void initView() {
-        fab.setFocusable(true);
-        fab.setFocusableInTouchMode(true);
-        fab.requestFocus();
-        fab.requestFocusFromTouch();
+        try {
+            initView();
+            initAction();
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @Override
@@ -120,11 +108,22 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
         ButterKnife.unbind(this);
     }
 
+    public SearchOrderFragment(){
+        new SearchOrderPresenter(this);
+    }
+
     public static SearchOrderFragment newInstance() {
         return new SearchOrderFragment();
     }
 
-    private void initAction(){
+    private void initView() throws Exception{
+        fab.setFocusable(true);
+        fab.setFocusableInTouchMode(true);
+        fab.requestFocus();
+        fab.requestFocusFromTouch();
+    }
+
+    private void initAction() throws Exception{
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,27 +146,8 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    // DialogFragment to host SublimePicker
-                    SublimePickerFragment pickerFrag = new SublimePickerFragment();
-                    pickerFrag.setCallback(mFragmentCallback);
-
-                    // Options
-                    Pair<Boolean, SublimeOptions> optionsPair = Tools.getNormalOptions();
-
-                    if (!optionsPair.first) { // If options are not valid
-                        T.showShort(getContext(), "No pickers activated");
-                        return;
-                    }
-
-                    // Valid options
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable("SUBLIME_OPTIONS", optionsPair.second);
-                    pickerFrag.setArguments(bundle);
-
-                    pickerFrag.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
-                    pickerFrag.show(getChildFragmentManager(), "SUBLIME_PICKER");
-
-                    ViewUtils.clearFocus(searchgoodsTvOrdertime,fab);
+                    DateTimePickerUtils.openDatePop(getContext(),getChildFragmentManager(),Tools.getDateOptions(),mFragmentCallback);
+                    ViewUtils.clearFocus(searchgoodsTvActureconstrustion,fab);
                 }
             }
 
@@ -178,46 +158,29 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    // DialogFragment to host SublimePicker
-                    SublimePickerFragment pickerFrag = new SublimePickerFragment();
-                    pickerFrag.setCallback(mFragmentTrueCallback);
-
-                    // Options
-                    Pair<Boolean, SublimeOptions> optionsPair = Tools.getNormalOptions();
-
-                    if (!optionsPair.first) { // If options are not valid
-                        T.showShort(getContext(), "No pickers activated");
-                        return;
-                    }
-
-                    // Valid options
-                    Bundle bundle = new Bundle();
-                    bundle.putParcelable("SUBLIME_OPTIONS", optionsPair.second);
-                    pickerFrag.setArguments(bundle);
-
-                    pickerFrag.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
-                    pickerFrag.show(getChildFragmentManager(), "SUBLIME_PICKER");
-
+                    DateTimePickerUtils.openDatePop(getContext(),getChildFragmentManager(),Tools.getDateOptions(),mFragmentTrueCallback);
                     ViewUtils.clearFocus(searchgoodsTvActureconstrustion,fab);
                 }
             }
-
-
         });
 
         searchgoodsTvTimmodel.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus){
-                    openBottomSheet();
+                try {
+                    if(hasFocus){
+                        openBottomSheet();
 
-                    ViewUtils.clearFocus(searchgoodsTvTimmodel,fab);
+                        ViewUtils.clearFocus(searchgoodsTvTimmodel,fab);
+                    }
+                } catch (Exception e) {
+                    Logger.e(e, TAG);
                 }
             }
         });
     }
 
-    public void openBottomSheet() {
+    public void openBottomSheet() throws Exception{
         initBottomSheet();
 
         initAdapter();
@@ -225,7 +188,7 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
         mPresenter.getFileModel(user.getId());
     }
 
-    private void initAdapter() {
+    private void initAdapter() throws Exception{
         adapter = new RecyclerAdapter<CODE_SPEC>(getContext(), R.layout.common_adp_siglecentertext) {
             @Override
             protected void convert(final RecyclerAdapterHelper helper, final CODE_SPEC info) {
@@ -244,7 +207,7 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
         recyclerView.setAdapter(adapter);
     }
 
-    private void initBottomSheet() {
+    private void initBottomSheet() throws Exception{
         recyclerView = (RecyclerView) LayoutInflater.from(getActivity())
                 .inflate(R.layout.common_bs_list, null);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -288,14 +251,18 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     };
 
     private void search(){
-        OrderInfoAPI infoAPI = new OrderInfoAPI();
-        infoAPI.setStrTjsj(searchgoodsTvOrdertime.getText().toString());
-        infoAPI.setCardNo(searchgoodsTvCarframeno.getText().toString());
-        infoAPI.setGrmxh(String.valueOf(fileModelId));
-        infoAPI.setStrSgsj(searchgoodsTvActureconstrustion.getText().toString());
-        Intent intent = new Intent(getActivity(), SearchListActivity.class);
-        intent.putExtra(SearchListActivity.INTENTNAME_SEARCHINFO,infoAPI);
-        startActivity(intent);
+        try {
+            OrderInfoAPI infoAPI = new OrderInfoAPI();
+            infoAPI.setStrTjsj(searchgoodsTvOrdertime.getText().toString());
+            infoAPI.setCardNo(searchgoodsTvCarframeno.getText().toString());
+            infoAPI.setGrmxh(String.valueOf(fileModelId));
+            infoAPI.setStrSgsj(searchgoodsTvActureconstrustion.getText().toString());
+            Intent intent = new Intent(getActivity(), SearchListActivity.class);
+            intent.putExtra(SearchListActivity.INTENTNAME_SEARCHINFO,infoAPI);
+            startActivity(intent);
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @Override
@@ -304,22 +271,16 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     }
 
     @Override
-    public void searchSuccess() {
-
-    }
-
-    @Override
-    public void searchFaild() {
-
-    }
-
-    @Override
     public void setFileModel(List<CODE_SPEC> array) {
-        if(adapter.getSize() == 0){
-            adapter.addAll(array);
-            dialog = new BottomSheetDialog(getActivity());
-            dialog.setContentView(recyclerView);
-            dialog.show();
+        try {
+            if(adapter.getSize() == 0){
+                adapter.addAll(array);
+                dialog = new BottomSheetDialog(getActivity());
+                dialog.setContentView(recyclerView);
+                dialog.show();
+            }
+        } catch (Exception e) {
+            Logger.e(e, TAG);
         }
     }
 

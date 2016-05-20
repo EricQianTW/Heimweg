@@ -38,44 +38,53 @@ public class OrderGoodsPresenter extends BasePresenter implements OrderGoodsCont
 
     @Override
     public void startOrder(int userId,String strTime,int ShopId) {
-        OkHttpUtils
-                .get()
-                .url(Constant.HTTP_IP)
-                .addParams("_Interface", "Matan.OrderAbout")
-                .addParams("_Method", "MeOrderAdd")
-                .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
-                .addParams("userid", GSONUtils.toJson(userId))
-                .addParams("strTime", GSONUtils.toJson(strTime))
-                .addParams("ShopId", GSONUtils.toJson(ShopId))
-                .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMapForStartOrder(userId, strTime,ShopId))))
-                .build()
-                .execute(new Callback<String>() {
-                    @Override
-                    public String parseNetworkResponse(Response response) throws Exception {
-                        return response.body().string();
-                    }
-
-                    @Override
-                    public void onError(Call call, Exception e) {
-                        Logger.e(e,"something happend");
-                    }
-
-                    @Override
-                    public void onResponse(String response) {
-                        TypeToken<Message<OrderInfoAPI>> token = new TypeToken<Message<OrderInfoAPI>>() {
-                        };
-                        Message<OrderInfoAPI> dataPackage = GSONUtils.fromJson(response, token);
-                        if(dataPackage.getState() == Constant.OKHTTP_RESULT_SUCESS){
-                            mLoginView.setOrderInfo(dataPackage.getBody());
-                        }else{
-                            Logger.e(TAG, dataPackage.getCustomMessage());
+        try {
+            OkHttpUtils
+                    .get()
+                    .url(Constant.HTTP_IP)
+                    .addParams("_Interface", "Matan.OrderAbout")
+                    .addParams("_Method", "MeOrderAdd")
+                    .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
+                    .addParams("userid", GSONUtils.toJson(userId))
+                    .addParams("strTime", GSONUtils.toJson(strTime))
+                    .addParams("ShopId", GSONUtils.toJson(ShopId))
+                    .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMapForStartOrder(userId, strTime,ShopId))))
+                    .build()
+                    .connTimeOut(OkHttpUtils.DEFAULT_MILLISECONDS)
+                    .execute(new Callback<String>() {
+                        @Override
+                        public String parseNetworkResponse(Response response) throws Exception {
+                            return response.body().string();
                         }
-                    }
-                });
+
+                        @Override
+                        public void onError(Call call, Exception e) {
+                            Logger.e(e,"something happend");
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                TypeToken<Message<OrderInfoAPI>> token = new TypeToken<Message<OrderInfoAPI>>() {
+                                };
+                                Message<OrderInfoAPI> dataPackage = GSONUtils.fromJson(response, token);
+                                if(dataPackage.getState() == Constant.OKHTTP_RESULT_SUCESS){
+                                    mLoginView.setOrderInfo(dataPackage.getBody());
+                                }else{
+                                    Logger.e(TAG, dataPackage.getCustomMessage());
+                                }
+                            } catch (Exception e) {
+                                Logger.e(e, TAG);
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @NonNull
-    private HashMap getRSAMapForStartOrder(int userId,String strTime,int ShopId) {
+    private HashMap getRSAMapForStartOrder(int userId,String strTime,int ShopId) throws Exception{
         HashMap map = new HashMap();
         map.put("deviceid", Constant.serialNumber);
         map.put("userid", userId);
@@ -86,109 +95,129 @@ public class OrderGoodsPresenter extends BasePresenter implements OrderGoodsCont
 
     @Override
     public void addOrder(OrderInfoAPI info, EmployeeInfo employeeInfo) {
-        OkHttpUtils
-                .get()
-                .url(Constant.HTTP_IP)
-                .addParams("_Interface", "Matan.OrderAbout")
-                .addParams("_Method", "MeOrderUpdate")
-                .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
-                .addParams("userid", GSONUtils.toJson(employeeInfo.getId()))
-                .addParams("OrderId", GSONUtils.toJson(info.getId()))
-                .addParams("CardNo", GSONUtils.toJson(info.getCardNo()))
-                .addParams("GrmXh", GSONUtils.toJson(info.getGrmxh()))
-                .addParams("CardMan", GSONUtils.toJson(info.getCardMan()))
-                .addParams("PhoneNum", GSONUtils.toJson(info.getPhoneNum()))
-                .addParams("Yjtcsj", GSONUtils.toJson(info.getYjtcsj()))
-                .build()
-                .execute(new Callback<String>() {
-                    @Override
-                    public String parseNetworkResponse(Response response) throws Exception {
-                        return response.body().string();
-                    }
-
-                    @Override
-                    public void onError(Call call, Exception e) {
-                        Logger.e(e,"something happend");
-                    }
-
-                    @Override
-                    public void onResponse(String response) {
-                        ResBoolean resBoolean = GSONUtils.fromJson(response,ResBoolean.class);
-                        if(resBoolean.getState() == 1){
-                            mLoginView.orderSuccess();
-                        }else{
-                            mLoginView.orderFaild();
+        try {
+            OkHttpUtils
+                    .get()
+                    .url(Constant.HTTP_IP)
+                    .addParams("_Interface", "Matan.OrderAbout")
+                    .addParams("_Method", "MeOrderUpdate")
+                    .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
+                    .addParams("userid", GSONUtils.toJson(employeeInfo.getId()))
+                    .addParams("OrderId", GSONUtils.toJson(info.getId()))
+                    .addParams("CardNo", GSONUtils.toJson(info.getCardNo()))
+                    .addParams("GrmXh", GSONUtils.toJson(info.getGrmxh()))
+                    .addParams("CardMan", GSONUtils.toJson(info.getCardMan()))
+                    .addParams("PhoneNum", GSONUtils.toJson(info.getPhoneNum()))
+                    .addParams("Yjtcsj", GSONUtils.toJson(info.getYjtcsj()))
+                    .build()
+                    .execute(new Callback<String>() {
+                        @Override
+                        public String parseNetworkResponse(Response response) throws Exception {
+                            return response.body().string();
                         }
-                    }
-                });
+
+                        @Override
+                        public void onError(Call call, Exception e) {
+                            Logger.e(e,"something happend");
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                ResBoolean resBoolean = GSONUtils.fromJson(response,ResBoolean.class);
+                                if(resBoolean.getState() == 1){
+                                    mLoginView.orderSuccess();
+                                }else{
+                                    mLoginView.orderFaild();
+                                }
+                            } catch (Exception e) {
+                                Logger.e(e, TAG);
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @Override
     public void getAddress(EmployeeInfo employeeInfo) {
-        OkHttpUtils
-                .get()
-                .url(Constant.HTTP_IP)
-                .addParams("_Interface", "Matan.User_1")
-                .addParams("_Method", "MB_GetAddress")
-                .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
-                .addParams("UserId", GSONUtils.toJson(employeeInfo.getEmployeeID()))
-                .addParams("password", GSONUtils.toJson(employeeInfo.getPassword()))
-                .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMapForGetAddress(employeeInfo.getEmployeeID(), employeeInfo.getPassword()))))
-                .build()
-                .execute(new Callback<ResBoolean>() {
-                    @Override
-                    public ResBoolean parseNetworkResponse(Response response) throws Exception {
-                        return GSONUtils.fromJson(response.body().string(), ResBoolean.class);
-                    }
+        try {
+            OkHttpUtils
+                    .get()
+                    .url(Constant.HTTP_IP)
+                    .addParams("_Interface", "Matan.User_1")
+                    .addParams("_Method", "MB_GetAddress")
+                    .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
+                    .addParams("UserId", GSONUtils.toJson(employeeInfo.getEmployeeID()))
+                    .addParams("password", GSONUtils.toJson(employeeInfo.getPassword()))
+                    .addParams("RSA", GSONUtils.toJson(RSAUtils.getRSA(getRSAMapForGetAddress(employeeInfo.getEmployeeID(), employeeInfo.getPassword()))))
+                    .build()
+                    .execute(new Callback<ResBoolean>() {
+                        @Override
+                        public ResBoolean parseNetworkResponse(Response response) throws Exception {
+                            return GSONUtils.fromJson(response.body().string(), ResBoolean.class);
+                        }
 
-                    @Override
-                    public void onError(Call call, Exception e) {
-                        Logger.e(e,"something happend");
-                    }
+                        @Override
+                        public void onError(Call call, Exception e) {
+                            Logger.e(e,"something happend");
+                        }
 
-                    @Override
-                    public void onResponse(ResBoolean response) {
-                    }
-                });
+                        @Override
+                        public void onResponse(ResBoolean response) {
+                        }
+                    });
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @Override
     public void getFileModel(int UserId) {
-        OkHttpUtils
-                .get()
-                .url(Constant.HTTP_IP)
-                .addParams("_Interface", "Matan.User_1")
-                .addParams("_Method", "MB_GetGrmList")
-                .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
-                .addParams("UserId", GSONUtils.toJson(UserId))
-                .build()
-                .execute(new Callback<String>() {
-                    @Override
-                    public String parseNetworkResponse(Response response) throws Exception {
-                        return response.body().string();
-                    }
-
-                    @Override
-                    public void onError(Call call, Exception e) {
-                        Logger.e(e,"something happend");
-                    }
-
-                    @Override
-                    public void onResponse(String response) {
-                        TypeToken<Message<List<CODE_SPEC>>> token = new TypeToken<Message<List<CODE_SPEC>>>() {
-                        };
-                        Message<List<CODE_SPEC>> dataPackage = GSONUtils.fromJson(response, token);
-                        if(dataPackage.getState() == Constant.OKHTTP_RESULT_SUCESS){
-                            mLoginView.setFileModel(dataPackage.getBody());
-                        }else{
-                            Logger.e(TAG, dataPackage.getCustomMessage());
+        try {
+            OkHttpUtils
+                    .get()
+                    .url(Constant.HTTP_IP)
+                    .addParams("_Interface", "Matan.User_1")
+                    .addParams("_Method", "MB_GetGrmList")
+                    .addParams("deviceid", GSONUtils.toJson(Constant.serialNumber))
+                    .addParams("UserId", GSONUtils.toJson(UserId))
+                    .build()
+                    .execute(new Callback<String>() {
+                        @Override
+                        public String parseNetworkResponse(Response response) throws Exception {
+                            return response.body().string();
                         }
-                    }
-                });
+
+                        @Override
+                        public void onError(Call call, Exception e) {
+                            Logger.e(e, "something happend");
+                        }
+
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                TypeToken<Message<List<CODE_SPEC>>> token = new TypeToken<Message<List<CODE_SPEC>>>() {
+                                };
+                                Message<List<CODE_SPEC>> dataPackage = GSONUtils.fromJson(response, token);
+                                if (dataPackage.getState() == Constant.OKHTTP_RESULT_SUCESS) {
+                                    mLoginView.setFileModel(dataPackage.getBody());
+                                } else {
+                                    Logger.e(TAG, dataPackage.getCustomMessage());
+                                }
+                            } catch (Exception e) {
+                                Logger.e(e, TAG);
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @NonNull
-    private HashMap getRSAMapForGetAddress(String userId, String password) {
+    private HashMap getRSAMapForGetAddress(String userId, String password) throws Exception {
         HashMap map = new HashMap();
         map.put("deviceid", Constant.serialNumber);
         map.put("UserId", userId);

@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.raizlabs.android.dbflow.config.FlowLog;
 import com.raizlabs.android.dbflow.config.FlowManager;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 /**
  * Created by androidyue on 2/9/16.

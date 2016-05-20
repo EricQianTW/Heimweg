@@ -42,10 +42,6 @@ public class ChooseStoresFragment extends BaseFragment implements ChooseStoresCo
     private ChooseStoresContract.Presenter mPresenter;
     private RecyclerAdapter<SaleList> adapter;
 
-    public ChooseStoresFragment() {
-        new ChooseStoresPresenter(this);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,13 +72,21 @@ public class ChooseStoresFragment extends BaseFragment implements ChooseStoresCo
     public void onResume() {
         super.onResume();
         mPresenter.start();
-        initData();
+        try {
+            initData();
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
+    }
+
+    public ChooseStoresFragment() {
+        new ChooseStoresPresenter(this);
     }
 
     public static ChooseStoresFragment newInstance() {
@@ -109,11 +113,11 @@ public class ChooseStoresFragment extends BaseFragment implements ChooseStoresCo
         rvIcon.setAdapter(adapter);
     }
 
-    private void initData(){
+    private void initData() throws Exception{
         mPresenter.getStore(user.getId(),SPUtils.get(getActivity(),SPUtils.SP_LOCATION_INFO,"").toString());
     }
 
-    private void initAdapter() {
+    private void initAdapter() throws Exception{
         adapter = new RecyclerAdapter<SaleList>(getContext(), R.layout.common_adp_siglelefttext) {
             @Override
             protected void convert(final RecyclerAdapterHelper helper, final SaleList info) {

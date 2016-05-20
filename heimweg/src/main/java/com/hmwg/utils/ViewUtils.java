@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.orhanobut.logger.Logger;
+
 /**
  * Created by Abaddon on 2016/2/22.
  */
@@ -47,6 +49,39 @@ public class ViewUtils {
 
                 Log.i(TAG, "A Button is unabled");
             }
+        }
+    }
+
+    /**
+     * 遍历布局，并禁用所有子控件
+     *
+     * @param viewGroup
+     *            布局对象
+     */
+    public static void setNullSubControls(ViewGroup viewGroup) {
+        String TAG = "setNullSubControls";
+        try {
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                View v = viewGroup.getChildAt(i);
+                if (v instanceof ViewGroup) {
+                    if (v instanceof Spinner) {
+                        Spinner spinner = (Spinner) v;
+                        if(spinner.getCount() > 0){
+                            spinner.setSelection(0);
+                        }
+                    } else if (v instanceof ListView) {
+                        ListView listview = (ListView) v;
+                        listview.removeAllViews();
+                    } else {
+                        setNullSubControls((ViewGroup) v);
+                    }
+                } else if (v instanceof EditText) {
+                    EditText editText = (EditText) v;
+                    editText.setText("");
+                }
+            }
+        } catch (Exception e) {
+            Logger.e(TAG, "A Button is unabled");
         }
     }
 

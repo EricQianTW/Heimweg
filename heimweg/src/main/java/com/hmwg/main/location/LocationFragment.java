@@ -68,8 +68,6 @@ public class LocationFragment extends BaseFragment implements LocationContract.V
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        initAction();
     }
 
     @Override
@@ -88,18 +86,9 @@ public class LocationFragment extends BaseFragment implements LocationContract.V
         return new LocationFragment();
     }
 
-    private void initAction() {
-
-    }
-
     @Override
     public void setPresenter(@NonNull LocationContract.Presenter presenter) {
         mPresenter = checkNotNull(presenter);
-    }
-
-    @Override
-    public void setLocation() {
-
     }
 
     private void initViews() throws Exception {
@@ -113,7 +102,7 @@ public class LocationFragment extends BaseFragment implements LocationContract.V
         adapter.replaceAll(mPresenter.getLocation());
     }
 
-    private void initAdapter() {
+    private void initAdapter() throws Exception {
         adapter = new RecyclerAdapter<LocationInfo>(getContext(), R.layout.common_adp_siglelefttext) {
             @Override
             protected void convert(final RecyclerAdapterHelper helper, final LocationInfo info) {

@@ -41,7 +41,8 @@ public class RegisterPresenter extends BasePresenter implements RegisterContract
                 .addParams("deviceid", "123")
                 .addParams("accountMobile", "13739146726")
                 .addParams("password", "198756")
-                .build()//
+                .build()
+                .connTimeOut(OkHttpUtils.DEFAULT_MILLISECONDS)
                 .execute(new Callback<User>()
                 {
                     @Override

@@ -12,14 +12,10 @@ import java.util.List;
 public interface SearchOrderContract {
 
     interface View extends BaseInterfaceView<Presenter> {
-        void searchSuccess();
-        void searchFaild();
         void setFileModel(List<CODE_SPEC> array);
     }
 
     interface Presenter extends BaseInterfacePresenter {
-        void searchTask();
-
         void getFileModel(int UserId);
     }
 

@@ -6,6 +6,7 @@ import com.hmwg.base.BaseAppCompatActivity;
 import com.hmwg.bean.OrderInfoAPI;
 import com.hmwg.eric.R;
 import com.hmwg.utils.ActivityUtils;
+import com.orhanobut.logger.Logger;
 
 public class SearchListActivity extends BaseAppCompatActivity {
 
@@ -16,25 +17,29 @@ public class SearchListActivity extends BaseAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.searchlist_act);
 
-        initCompatView();
-        initBack();
+        try {
+            initCompatView();
+            initBack();
 
-        OrderInfoAPI infoAPI = (OrderInfoAPI) getIntent().getSerializableExtra(INTENTNAME_SEARCHINFO);
+            OrderInfoAPI infoAPI = (OrderInfoAPI) getIntent().getSerializableExtra(INTENTNAME_SEARCHINFO);
 
-        SearchListFragment searchListFragment = (SearchListFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+            SearchListFragment searchListFragment = (SearchListFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
 
-        if (searchListFragment == null) {
-            searchListFragment = SearchListFragment.newInstance();
+            if (searchListFragment == null) {
+                searchListFragment = SearchListFragment.newInstance();
 
-            Bundle data = new Bundle();
-            data.putSerializable(INTENTNAME_SEARCHINFO,infoAPI);
-            searchListFragment.setArguments(data);
-            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
-                    searchListFragment, R.id.contentFrame);
+                Bundle data = new Bundle();
+                data.putSerializable(INTENTNAME_SEARCHINFO,infoAPI);
+                searchListFragment.setArguments(data);
+                ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
+                        searchListFragment, R.id.contentFrame);
+            }
+
+            // Create the presenter
+            new SearchListPresenter(searchListFragment);
+        } catch (Exception e) {
+            Logger.e(e, TAG);
         }
-
-        // Create the presenter
-        new SearchListPresenter(searchListFragment);
     }
 
     @Override

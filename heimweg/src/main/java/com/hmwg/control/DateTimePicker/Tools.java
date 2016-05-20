@@ -26,4 +26,19 @@ public class Tools {
         return new Pair<>(displayOptions != 0 ? Boolean.TRUE : Boolean.FALSE, options);
     }
 
+    public static Pair<Boolean, SublimeOptions> getDateOptions() {
+        SublimeOptions options = new SublimeOptions();
+        int displayOptions = 0;
+
+        displayOptions |= SublimeOptions.ACTIVATE_DATE_PICKER;
+
+        options.setPickerToShow(SublimeOptions.Picker.DATE_PICKER);
+
+        options.setDisplayOptions(displayOptions);
+
+        options.setCanPickDateRange(false);
+
+        return new Pair<>(displayOptions != 0 ? Boolean.TRUE : Boolean.FALSE, options);
+    }
+
 }

@@ -16,6 +16,7 @@ import com.hmwg.utils.ActivityUtils;
 import com.hmwg.utils.IntentUtils;
 import com.hmwg.utils.SPUtils;
 import com.hmwg.utils.T;
+import com.orhanobut.logger.Logger;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -36,28 +37,37 @@ public class OrderGoodsActivity extends BaseAppCompatActivity implements Navigat
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ordergoods_act);
         ButterKnife.bind(this);
-        initCompatView();
-        initAction();
 
-        OrderGoodsFragment orderGoodsFragment = (OrderGoodsFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+        try {
+            initCompatView();
+            initAction();
 
-        if (orderGoodsFragment == null) {
-            orderGoodsFragment = OrderGoodsFragment.newInstance();
+            OrderGoodsFragment orderGoodsFragment = (OrderGoodsFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
 
-            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
-                    orderGoodsFragment, R.id.contentFrame);
+            if (orderGoodsFragment == null) {
+                orderGoodsFragment = OrderGoodsFragment.newInstance();
+
+                ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
+                        orderGoodsFragment, R.id.contentFrame);
+            }
+
+            // Create the presenter
+            new OrderGoodsPresenter(orderGoodsFragment);
+        } catch (Exception e) {
+            Logger.e(e, TAG);
         }
-
-        // Create the presenter
-        new OrderGoodsPresenter(orderGoodsFragment);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        if ("".equals(SPUtils.get(getApplicationContext(), SPUtils.SP_STORE_INFO, ""))) {
-            IntentUtils.startActivity(this, ChooseStoresActivity.class);
+        try {
+            if ("".equals(SPUtils.get(getApplicationContext(), SPUtils.SP_STORE_INFO, ""))) {
+                IntentUtils.startActivity(this, ChooseStoresActivity.class);
+            }
+        } catch (Exception e) {
+            Logger.e(e, TAG);
         }
     }
 

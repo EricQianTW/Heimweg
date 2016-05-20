@@ -6,6 +6,7 @@ import com.hmwg.base.BaseAppCompatActivity;
 import com.hmwg.bean.OrderInfoAPI;
 import com.hmwg.eric.R;
 import com.hmwg.utils.ActivityUtils;
+import com.orhanobut.logger.Logger;
 
 public class SearchDetailActivity extends BaseAppCompatActivity {
 
@@ -16,25 +17,29 @@ public class SearchDetailActivity extends BaseAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.searchdetail_act);
 
-        initCompatView();
-        initBack();
+        try {
+            initCompatView();
+            initBack();
 
-        int id = getIntent().getIntExtra(INTENTNAME_SEARCHID,-1);
+            int id = getIntent().getIntExtra(INTENTNAME_SEARCHID,-1);
 
-        SearchDetailFragment searchListFragment = (SearchDetailFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+            SearchDetailFragment searchListFragment = (SearchDetailFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
 
-        if (searchListFragment == null) {
-            searchListFragment = SearchDetailFragment.newInstance();
+            if (searchListFragment == null) {
+                searchListFragment = SearchDetailFragment.newInstance();
 
-            Bundle data = new Bundle();
-            data.putInt(INTENTNAME_SEARCHID,id);
-            searchListFragment.setArguments(data);
-            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
-                    searchListFragment, R.id.contentFrame);
+                Bundle data = new Bundle();
+                data.putInt(INTENTNAME_SEARCHID,id);
+                searchListFragment.setArguments(data);
+                ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
+                        searchListFragment, R.id.contentFrame);
+            }
+
+            // Create the presenter
+            new SearchDetailPresenter(searchListFragment);
+        } catch (Exception e) {
+            Logger.e(e, TAG);
         }
-
-        // Create the presenter
-        new SearchDetailPresenter(searchListFragment);
     }
 
     @Override

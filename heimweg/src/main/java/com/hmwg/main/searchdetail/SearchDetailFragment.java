@@ -18,6 +18,7 @@ import com.hmwg.bean.OrderInfoAPI;
 import com.hmwg.control.DialogViewUtils;
 import com.hmwg.eric.R;
 import com.hmwg.utils.T;
+import com.orhanobut.logger.Logger;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -57,10 +58,6 @@ public class SearchDetailFragment extends BaseFragment implements SearchDetailCo
     private SearchDetailContract.Presenter mPresenter;
     private int infoId;
 
-    public SearchDetailFragment() {
-        new SearchDetailPresenter(this);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -80,12 +77,12 @@ public class SearchDetailFragment extends BaseFragment implements SearchDetailCo
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initView();
-        initAction();
-    }
-
-    private void initView() {
-        mPresenter.searchTask(user.getId(), infoId);
+        try {
+            initData();
+            initAction();
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
     }
 
     @Override
@@ -100,11 +97,19 @@ public class SearchDetailFragment extends BaseFragment implements SearchDetailCo
         ButterKnife.unbind(this);
     }
 
+    public SearchDetailFragment() {
+        new SearchDetailPresenter(this);
+    }
+
+    private void initData() throws Exception{
+        mPresenter.searchTask(user.getId(), infoId);
+    }
+
     public static SearchDetailFragment newInstance() {
         return new SearchDetailFragment();
     }
 
-    private void initAction() {
+    private void initAction() throws Exception{
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +125,6 @@ public class SearchDetailFragment extends BaseFragment implements SearchDetailCo
 
                     }
                 }, "取消", "确认", "是否确认删除");
-
             }
         });
     }
@@ -132,16 +136,25 @@ public class SearchDetailFragment extends BaseFragment implements SearchDetailCo
 
     @Override
     public void searchSuccess(OrderInfoAPI infoAPIs) {
-        ordergoodsTvOrdertime.setText(infoAPIs.getStrCreateTime());
-        ordergoodsTvStore.setText(infoAPIs.getAddress());
-        ordergoodsTvCarframeno.setText(infoAPIs.getCardNo());
-        ordergoodsTvTimmodel.setText(infoAPIs.getGrmxh());
-        ordergoodsTvCarownername.setText(infoAPIs.getCardMan());
-        ordergoodsTvPhone.setText(infoAPIs.getPhoneNum());
-        if(infoAPIs.getStrSgsj()!=null && !"".equals(infoAPIs.getStrSgsj())){
-            ordergoodsTvExpcartime.setText(infoAPIs.getStrSgsj());
-        }else{
-            ordergoodsTvExpcartime.setText("暂无");
+        try {
+            if(infoAPIs != null){
+                ordergoodsTvOrdertime.setText(infoAPIs.getStrCreateTime());
+                ordergoodsTvStore.setText(infoAPIs.getAddress());
+                ordergoodsTvCarframeno.setText(infoAPIs.getCardNo());
+                ordergoodsTvTimmodel.setText(infoAPIs.getGrmxh());
+                ordergoodsTvCarownername.setText(infoAPIs.getCardMan());
+                ordergoodsTvPhone.setText(infoAPIs.getPhoneNum());
+                if(infoAPIs.getStrSgsj()!=null && !"".equals(infoAPIs.getStrSgsj())){
+                    ordergoodsTvExpcartime.setText(infoAPIs.getStrSgsj());
+                }else{
+                    ordergoodsTvExpcartime.setText("暂无");
+                }
+            }else{
+                T.showShort(getActivity(),"数据不存在");
+                getActivity().finish();
+            }
+        } catch (Exception e) {
+            Logger.e(e, TAG);
         }
     }
 

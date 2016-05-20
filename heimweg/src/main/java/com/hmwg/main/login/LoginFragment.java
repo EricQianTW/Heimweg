@@ -20,6 +20,7 @@ import com.hmwg.main.ordergoods.OrderGoodsActivity;
 import com.hmwg.utils.IntentUtils;
 import com.hmwg.utils.T;
 import com.hmwg.utils.ValidationUtils;
+import com.orhanobut.logger.Logger;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -47,10 +48,6 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     TextView register;
 
     private LoginContract.Presenter mPresenter;
-
-    public LoginFragment(){
-        new LoginPresenter(this);
-    }
 
     @Nullable
     @Override
@@ -84,6 +81,10 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         ButterKnife.unbind(this);
     }
 
+    public LoginFragment(){
+        new LoginPresenter(this);
+    }
+
     public static LoginFragment newInstance() {
         return new LoginFragment();
     }
@@ -92,11 +93,15 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkValidation()) {
-                    focusView.requestFocus();
-                } else {
-                    showProgress(true, loginProgress, loginForm);
-                    mPresenter.loginTask(account.getText().toString(),password.getText().toString(),getActivity());
+                try {
+                    if (checkValidation()) {
+                        focusView.requestFocus();
+                    } else {
+                        showProgress(true, loginProgress, loginForm);
+                        mPresenter.loginTask(account.getText().toString(),password.getText().toString(),getActivity());
+                    }
+                } catch (Exception e) {
+                    Logger.e(e,TAG);
                 }
             }
         });
@@ -107,7 +112,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
      *
      * @return
      */
-    private boolean checkValidation() {
+    private boolean checkValidation() throws Exception{
         //Reset errors
         ValidationUtils.resetErrorControls(loginForm);
         if (validation.isEmpty(account, validation.isEmptyMessage(R.string.prompt_account))) {

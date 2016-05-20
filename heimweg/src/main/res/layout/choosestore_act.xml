@@ -24,6 +24,10 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <include
+        android:id="@+id/tv_netconnection"
+        layout="@layout/common_netconnect" />
+
     <FrameLayout
         android:id="@+id/contentFrame"
         android:layout_width="match_parent"

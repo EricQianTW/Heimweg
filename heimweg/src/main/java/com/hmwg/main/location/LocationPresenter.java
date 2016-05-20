@@ -9,6 +9,7 @@ import com.hmwg.bean.LocationInfo;
 import com.hmwg.common.Constant;
 import com.hmwg.utils.GSONUtils;
 import com.hmwg.utils.SPUtils;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,11 +37,16 @@ public class LocationPresenter extends BasePresenter implements LocationContract
 
     @Override
     public List<LocationInfo> getLocation() {
-        List<LocationInfo> arr = new ArrayList<LocationInfo>();
-        for (int i = 0; i < provinceArr.length; i++) {
-            LocationInfo info = new LocationInfo();
-            info.setLocation(provinceArr[i]);
-            arr.add(info);
+        List<LocationInfo> arr = null;
+        try {
+            arr = new ArrayList<LocationInfo>();
+            for (int i = 0; i < provinceArr.length; i++) {
+                LocationInfo info = new LocationInfo();
+                info.setLocation(provinceArr[i]);
+                arr.add(info);
+            }
+        } catch (Exception e) {
+            Logger.e(e, TAG);
         }
         return arr;
     }

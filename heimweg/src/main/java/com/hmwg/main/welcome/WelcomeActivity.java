@@ -16,6 +16,7 @@ import com.hmwg.utils.IntentUtils;
 import com.hmwg.utils.NetUtils;
 import com.hmwg.utils.SDCardUtils;
 import com.hmwg.utils.T;
+import com.orhanobut.logger.Logger;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,54 +36,66 @@ public class WelcomeActivity extends BaseActivity {
         setContentView(R.layout.welcome_act);
         ButterKnife.bind(this);
 
-        if(!SDCardUtils.isSDCardEnable()){
-            AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-            builder.setMessage("内存设备未准备好，无法运行");
-            builder.setNegativeButton("知道了",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,
-                                            int whichButton) {
-                            AppManager.getAppManager().AppExit(getApplicationContext());
-                        }
-                    });
-            builder.create().show();
-        }
+        try {
+            if(!SDCardUtils.isSDCardEnable()){
+                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                builder.setMessage("内存设备未准备好，无法运行");
+                builder.setNegativeButton("知道了",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int whichButton) {
+                                AppManager.getAppManager().AppExit(getApplicationContext());
+                            }
+                        });
+                builder.create().show();
+            }
 
-        if (NetUtils.isConnected(this)) {
-            LoadAnsyReadVersionXML loadXml = new LoadAnsyReadVersionXML(WelcomeActivity.this);
-            loadXml.setOnCompareFinishListen(new LoadAnsyReadVersionXML.OnCompareFinishListening() {
-                @Override
-                public void CompareFinishListening() {
-                    initJump();
-                }
-            });
-            loadXml.setOnCancelUpdateListen(new LoadAnsyReadVersionXML.OnCancelUpdateListening() {
-                @Override
-                public void CompareFinishListening() {
-                    AppManager.getAppManager().AppExit(getActivity());
-                }
-            });
-            loadXml.execute();
-        } else {
-            T.showShort(getApplicationContext(), "请先联网.........");
+            if (NetUtils.isConnected(this)) {
+                LoadAnsyReadVersionXML loadXml = new LoadAnsyReadVersionXML(WelcomeActivity.this);
+                loadXml.setOnCompareFinishListen(new LoadAnsyReadVersionXML.OnCompareFinishListening() {
+                    @Override
+                    public void CompareFinishListening() {
+                        try {
+                            initJump();
+                        } catch (Exception e) {
+                            Logger.e(e, TAG);
+                        }
+                    }
+                });
+                loadXml.setOnCancelUpdateListen(new LoadAnsyReadVersionXML.OnCancelUpdateListening() {
+                    @Override
+                    public void CompareFinishListening() {
+                        AppManager.getAppManager().AppExit(getActivity());
+                    }
+                });
+                loadXml.execute();
+            } else {
+                T.showShort(getApplicationContext(), "请先联网.........");
+            }
+        } catch (Exception e) {
+            Logger.e(e, TAG);
         }
     }
 
     /**
      * 定时跳转
      */
-    private void initJump() {
+    private void initJump() throws Exception{
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                jumpPage();
+                try {
+                    jumpPage();
+                } catch (Exception e) {
+                    Logger.e(e, TAG);
+                }
             }
         };
         timer.schedule(task, 1000 * 2);
     }
 
-    private void jumpPage() {
+    private void jumpPage() throws Exception{
         if(getUser() != null && getUser().isLogin()){
             IntentUtils.startActivityWithFinish(this, OrderGoodsActivity.class);
         }else{

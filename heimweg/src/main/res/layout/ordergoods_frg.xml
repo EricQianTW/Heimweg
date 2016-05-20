@@ -15,7 +15,7 @@
         <!-- Login progress -->
         <ProgressBar
             android:id="@+id/ordergoods_progress"
-            style="?android:attr/progressBarStyleLarge"
+            style="?android:attr/progressBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -44,6 +44,7 @@
                         android:id="@+id/ordergoods_tv_ordertime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        style="@style/gray03.18"
                         android:hint="@string/ordergoods_tv_ordertime"
                         android:imeOptions="actionNext"
                         android:inputType="none"
@@ -63,6 +64,7 @@
                         android:id="@+id/ordergoods_tv_store"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        style="@style/gray03.18"
                         android:hint="@string/ordergoods_tv_store"
                         android:imeOptions="actionNext"
                         android:inputType="none"
