@@ -2,10 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
     android:background="@drawable/listitem_click">
 
     <TextView
         android:id="@+id/tv_danhao"
+        style="@style/gray03.18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -14,6 +17,7 @@
 
     <TextView
         android:id="@+id/tv_wangdian"
+        style="@style/gray03.18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_danhao"
@@ -21,17 +25,32 @@
 
     <TextView
         android:id="@+id/tv_chejiahao"
+        style="@style/gray03.18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_wangdian"
         android:layout_alignParentLeft="true"/>
 
     <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:id="@+id/iv_delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/icon_delete"
+        android:padding="5dp"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/arrow_right"
+        android:layout_below="@id/tv_chejiahao"
+        android:layout_marginRight="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/iv_detail"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/icon_detail"
+        android:padding="5dp"
+        android:layout_toLeftOf="@id/iv_delete"
+        android:layout_below="@id/tv_chejiahao"
+        android:layout_marginRight="10dp"
         />
 
 </RelativeLayout>

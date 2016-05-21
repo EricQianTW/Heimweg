@@ -15,10 +15,12 @@ public interface SearchListContract {
     interface View extends BaseInterfaceView<Presenter> {
         void searchSuccess(List<OrderInfoAPI> array);
         void searchFaild();
+        void deleteSuccess();
     }
 
     interface Presenter extends BaseInterfacePresenter {
         void searchTask(int userId,OrderInfoAPI infoAPI);
+        void deleteTask(int userId,int orderId);
     }
 
 }

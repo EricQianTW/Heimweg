@@ -14,9 +14,11 @@ import android.widget.ProgressBar;
 
 import com.hmwg.base.BaseFragment;
 import com.hmwg.bean.OrderInfoAPI;
+import com.hmwg.control.DialogViewUtils;
 import com.hmwg.control.pacificadapter.HorizontalItemDecoration;
 import com.hmwg.eric.R;
 import com.hmwg.main.searchdetail.SearchDetailActivity;
+import com.hmwg.utils.T;
 import com.orhanobut.logger.Logger;
 import com.pacific.adapter.RecyclerAdapter;
 import com.pacific.adapter.RecyclerAdapterHelper;
@@ -104,7 +106,26 @@ public class SearchListFragment extends BaseFragment implements SearchListContra
                 final int position = helper.getAdapterPosition();
                 helper.setText(R.id.tv_danhao, "单号：" + String.valueOf(info.getId()))
                       .setText(R.id.tv_wangdian, "网点：" + info.getAddress())
-                      .setText(R.id.tv_chejiahao, "车架号：" + info.getCardNo()).getItemView().setOnClickListener(new View.OnClickListener() {
+                      .setText(R.id.tv_chejiahao, "车架号：" + info.getCardNo());
+
+                helper.getItemView().findViewById(R.id.iv_delete).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DialogViewUtils.showNoneView(getActivity(), new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                DialogViewUtils.dialog.dismiss();
+                            }
+                        }, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mPresenter.deleteTask(user.getId(),info.getId());
+                            }
+                        }, "取消", "确认", "是否确认删除");
+                    }
+                });
+
+                helper.getItemView().findViewById(R.id.iv_detail).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), SearchDetailActivity.class);
@@ -137,8 +158,12 @@ public class SearchListFragment extends BaseFragment implements SearchListContra
     public void searchSuccess(List<OrderInfoAPI> infoAPIs) {
         try {
             if(infoAPIs != null){
-                adapter.clear();
-                adapter.addAll(infoAPIs);
+                if(infoAPIs.size() > 0){
+                    adapter.clear();
+                    adapter.addAll(infoAPIs);
+                }else{
+                    T.showShort(getActivity(),"没有更多记录了");
+                }
             }
         } catch (Exception e) {
             Logger.e(e, TAG);
@@ -150,4 +175,14 @@ public class SearchListFragment extends BaseFragment implements SearchListContra
 
     }
 
+    @Override
+    public void deleteSuccess() {
+        DialogViewUtils.dialog.dismiss();
+        T.showShort(getActivity(),"删除成功");
+        try {
+            initData();
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+        }
+    }
 }
