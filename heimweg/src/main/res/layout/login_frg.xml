@@ -91,5 +91,11 @@
         </ScrollView>
     </LinearLayout>
 
+    <com.hmwg.control.webview.MyWebView
+        android:id="@+id/wv_login"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:visibility="gone">
 
+    </com.hmwg.control.webview.MyWebView>
 </android.support.design.widget.CoordinatorLayout>

@@ -223,6 +223,7 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     SublimePickerFragment.Callback mFragmentCallback = new SublimePickerFragment.Callback() {
         @Override
         public void onCancelled() {
+            searchgoodsTvOrdertime.setText("");
         }
 
         @Override
@@ -230,7 +231,7 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
                                             int hourOfDay, int minute,
                                             SublimeRecurrencePicker.RecurrenceOption recurrenceOption,
                                             String recurrenceRule) {
-            String temp = DateUtils.calendarToString(selectedDate.getStartDate(),DateUtils.F20) + " " + hourOfDay + ":" + minute;
+            String temp = DateUtils.calendarToString(selectedDate.getStartDate(),DateUtils.F20);
             searchgoodsTvOrdertime.setText(temp);
         }
     };
@@ -238,6 +239,7 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     SublimePickerFragment.Callback mFragmentTrueCallback = new SublimePickerFragment.Callback() {
         @Override
         public void onCancelled() {
+            searchgoodsTvActureconstrustion.setText("");
         }
 
         @Override
@@ -245,7 +247,7 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
                                             int hourOfDay, int minute,
                                             SublimeRecurrencePicker.RecurrenceOption recurrenceOption,
                                             String recurrenceRule) {
-            String temp = DateUtils.calendarToString(selectedDate.getStartDate(),DateUtils.F20) + " " + hourOfDay + ":" + minute;
+            String temp = DateUtils.calendarToString(selectedDate.getStartDate(),DateUtils.F20);
             searchgoodsTvActureconstrustion.setText(temp);
         }
     };

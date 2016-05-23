@@ -5,6 +5,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -55,6 +56,7 @@ public class OrderGoodsActivity extends BaseAppCompatActivity implements Navigat
             new OrderGoodsPresenter(orderGoodsFragment);
         } catch (Exception e) {
             Logger.e(e, TAG);
+            e.printStackTrace();
         }
     }
 

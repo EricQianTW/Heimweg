@@ -11,7 +11,7 @@ import com.hmwg.base.BaseInterfaceView;
 public interface LoginContract {
 
     interface View extends BaseInterfaceView<Presenter> {
-        void loginSuccess();
+        void loginSuccess(int userId);
         void loginFaild();
     }
 

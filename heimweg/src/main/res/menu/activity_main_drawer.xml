@@ -18,6 +18,7 @@
             <item
                 android:id="@+id/nav_reel"
                 android:icon="@drawable/ic_menu_send"
+                android:visible="false"
                 android:title="天使如愿盘" />
             <item
                 android:id="@+id/nav_logout"

@@ -16,17 +16,14 @@ public class DialActivity extends BaseAppCompatActivity {
         initCompatView();
         initBack();
 
-        DialFragment dialFragment = (DialFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+        DialWvFragment DialWvFragment = (DialWvFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
 
-        if (dialFragment == null) {
-            dialFragment = DialFragment.newInstance();
+        if (DialWvFragment == null) {
+            DialWvFragment = DialWvFragment.newInstance();
 
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
-                    dialFragment, R.id.contentFrame);
+                    DialWvFragment, R.id.contentFrame);
         }
-
-        // Create the presenter
-        new DialPresenter(dialFragment);
     }
 
     @Override

@@ -15,6 +15,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.hmwg.base.BaseFragment;
+import com.hmwg.control.webview.MyWebView;
 import com.hmwg.eric.R;
 import com.hmwg.main.ordergoods.OrderGoodsActivity;
 import com.hmwg.utils.IntentUtils;
@@ -46,6 +47,8 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     FloatingActionButton fab;
     @Bind(R.id.register)
     TextView register;
+    @Bind(R.id.wv_login)
+    MyWebView wvLogin;
 
     private LoginContract.Presenter mPresenter;
 
@@ -81,7 +84,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         ButterKnife.unbind(this);
     }
 
-    public LoginFragment(){
+    public LoginFragment() {
         new LoginPresenter(this);
     }
 
@@ -89,7 +92,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         return new LoginFragment();
     }
 
-    private void initAction(){
+    private void initAction() {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,10 +101,10 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
                         focusView.requestFocus();
                     } else {
                         showProgress(true, loginProgress, loginForm);
-                        mPresenter.loginTask(account.getText().toString(),password.getText().toString(),getActivity());
+                        mPresenter.loginTask(account.getText().toString(), password.getText().toString(), getActivity());
                     }
                 } catch (Exception e) {
-                    Logger.e(e,TAG);
+                    Logger.e(e, TAG);
                 }
             }
         });
@@ -112,7 +115,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
      *
      * @return
      */
-    private boolean checkValidation() throws Exception{
+    private boolean checkValidation() throws Exception {
         //Reset errors
         ValidationUtils.resetErrorControls(loginForm);
         if (validation.isEmpty(account, validation.isEmptyMessage(R.string.prompt_account))) {
@@ -133,7 +136,8 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     }
 
     @Override
-    public void loginSuccess() {
+    public void loginSuccess(int userId) {
+        wvLogin.loadUrl("http://api.web.heimweg.com.cn/applogin.aspx?userid="+ userId +"&verify=123");
         T.showShort(getActivity(), "登录成功");
         showProgress(false, loginProgress, loginForm);
         IntentUtils.startActivityWithFinish(getActivity(), OrderGoodsActivity.class);
@@ -141,7 +145,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
 
     @Override
     public void loginFaild() {
-        T.showShort(getActivity(),"登陆失败");
+        T.showShort(getActivity(), "登陆失败");
         showProgress(false, loginProgress, loginForm);
     }
 }

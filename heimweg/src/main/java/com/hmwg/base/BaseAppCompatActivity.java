@@ -36,6 +36,7 @@ import com.hmwg.utils.SPUtils;
 import com.hmwg.utils.T;
 import com.hmwg.utils.ValidationUtils;
 import com.hmwg.utils.ViewUtils;
+import com.orhanobut.logger.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -79,24 +80,38 @@ public class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ActivityManager.getInstance().setCurrentActivity(this);
+        try {
+            ActivityManager.getInstance().setCurrentActivity(this);
 
-        NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
-        if(nav_view != null){
-            View header = nav_view.getHeaderView(0);
-            if(header != null){
-                TextView tv_username = (TextView) header.findViewById(R.id.tv_username);
-                if(tv_username != null){
-                    tv_username.setText("欢迎  " + getUser().getName());
+            NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
+            if(nav_view != null){
+                View header = nav_view.getHeaderView(0);
+                if(header != null){
+                    TextView tv_username = (TextView) header.findViewById(R.id.tv_username);
+                    if(tv_username != null){
+                        tv_username.setText("欢迎  " + getUser().getName());
+                    }
+                    TextView tv_location = (TextView) header.findViewById(R.id.tv_location);
+                    if(tv_location != null){
+                        tv_location.setText(String.valueOf(SPUtils.get(this,SPUtils.SP_STORE_INFO,"")));
+                    }
                 }
-                TextView tv_location = (TextView) header.findViewById(R.id.tv_location);
-                if(tv_location != null){
-                    tv_location.setText(String.valueOf(SPUtils.get(this,SPUtils.SP_STORE_INFO,"")));
+
+                if(getUser().getFGroup() == 100){
+                    if(nav_view.getMenu() != null && nav_view.getMenu().size() > 0
+                            && nav_view.getMenu().getItem(0).getSubMenu() != null
+                            && nav_view.getMenu().getItem(0).getSubMenu().size() > 0){
+                        nav_view.getMenu().getItem(0).getSubMenu().getItem(3).setVisible(true);
+                    }
                 }
             }
-        }
 
-        tvNetconnection = (TextView) findViewById(R.id.tv_netconnection);
+
+            tvNetconnection = (TextView) findViewById(R.id.tv_netconnection);
+        } catch (Exception e) {
+            Logger.e(e, TAG);
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -175,6 +190,9 @@ public class BaseAppCompatActivity extends AppCompatActivity {
             IntentUtils.startActivityWithFinish(getActivity(), OrderGoodsActivity.class);
         } else if (id == R.id.nav_logout) {
             SPUtils.remove(this,SPUtils.SP_LOGIN_INFO);
+            SPUtils.remove(this,SPUtils.SP_STORE_INFO);
+            SPUtils.remove(this,SPUtils.SP_LOCATION_INFO);
+            SPUtils.remove(this,SPUtils.SP_STOREID_INFO);
             AppManager.getAppManager().AppExit(getActivity());
         } else if (id == R.id.nav_choicestore) {
             IntentUtils.startActivity(getActivity(), ChooseStoresActivity.class);

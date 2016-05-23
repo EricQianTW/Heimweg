@@ -76,7 +76,7 @@ public class LoginPresenter extends BasePresenter implements LoginContract.Prese
                                     EmployeeInfo info = dataPackage.getBody();
                                     info.setLogin(true);
                                     SPUtils.put(mContext,SPUtils.SP_LOGIN_INFO, GSONUtils.toJson(info));
-                                    mLoginView.loginSuccess();
+                                    mLoginView.loginSuccess(info.getId());
                                 }else{
                                     Logger.e(TAG, dataPackage.getCustomMessage());
                                     mLoginView.loginFaild();
