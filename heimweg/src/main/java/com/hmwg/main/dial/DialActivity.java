@@ -19,7 +19,7 @@ public class DialActivity extends BaseAppCompatActivity {
         DialWvFragment DialWvFragment = (DialWvFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
 
         if (DialWvFragment == null) {
-            DialWvFragment = DialWvFragment.newInstance();
+            DialWvFragment = com.hmwg.main.dial.DialWvFragment.newInstance();
 
             ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
                     DialWvFragment, R.id.contentFrame);

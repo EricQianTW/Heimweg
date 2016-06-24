@@ -196,9 +196,15 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
                 helper.setText(R.id.tv_string, info.getGRMXH()).getItemView().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        searchgoodsTvTimmodel.setText(info.getGRMXH());
-                        fileModelId = info.getId();
-                        dialog.dismiss();
+                        if(info.getId() != -1){
+                            searchgoodsTvTimmodel.setText(info.getGRMXH());
+                            fileModelId = info.getId();
+                            dialog.dismiss();
+                        }else {
+                            searchgoodsTvTimmodel.setText("");
+                            fileModelId = info.getId();
+                            dialog.dismiss();
+                        }
                     }
                 });
                 helper.getItemView().setTag(TAG);
@@ -257,7 +263,9 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
             OrderInfoAPI infoAPI = new OrderInfoAPI();
             infoAPI.setStrTjsj(searchgoodsTvOrdertime.getText().toString());
             infoAPI.setCardNo(searchgoodsTvCarframeno.getText().toString());
-            infoAPI.setGrmxh(String.valueOf(fileModelId));
+            if(fileModelId > 0){
+                infoAPI.setGrmxh(String.valueOf(fileModelId));
+            }
             infoAPI.setStrSgsj(searchgoodsTvActureconstrustion.getText().toString());
             Intent intent = new Intent(getActivity(), SearchListActivity.class);
             intent.putExtra(SearchListActivity.INTENTNAME_SEARCHINFO,infoAPI);
@@ -276,6 +284,10 @@ public class SearchOrderFragment extends BaseFragment implements SearchOrderCont
     public void setFileModel(List<CODE_SPEC> array) {
         try {
             if(adapter.getSize() == 0){
+                CODE_SPEC temp = new CODE_SPEC();
+                temp.setId(-1);
+                temp.setGRMXH("清除当前所选");
+                adapter.add(temp);
                 adapter.addAll(array);
                 dialog = new BottomSheetDialog(getActivity());
                 dialog.setContentView(recyclerView);

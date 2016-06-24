@@ -8,7 +8,7 @@ android {
         applicationId "com.hmwg.eric"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 20170503
+        versionCode 20170520
         versionName "1.0"
     }
     buildTypes {

@@ -44,7 +44,7 @@ public class DialWvFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        goodsWebview.loadUrl("http://api.web.heimweg.com.cn/choujiang.aspx");
+        goodsWebview.loadUrl("http://api.web.heimweg.com.cn/choujiang.html");
     }
 
     @Override

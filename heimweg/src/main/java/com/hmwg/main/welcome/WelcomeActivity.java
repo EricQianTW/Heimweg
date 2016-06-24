@@ -51,24 +51,24 @@ public class WelcomeActivity extends BaseActivity {
             }
 
             if (NetUtils.isConnected(this)) {
-                LoadAnsyReadVersionXML loadXml = new LoadAnsyReadVersionXML(WelcomeActivity.this);
-                loadXml.setOnCompareFinishListen(new LoadAnsyReadVersionXML.OnCompareFinishListening() {
-                    @Override
-                    public void CompareFinishListening() {
-                        try {
+//                LoadAnsyReadVersionXML loadXml = new LoadAnsyReadVersionXML(WelcomeActivity.this);
+//                loadXml.setOnCompareFinishListen(new LoadAnsyReadVersionXML.OnCompareFinishListening() {
+//                    @Override
+//                    public void CompareFinishListening() {
+//                        try {
                             initJump();
-                        } catch (Exception e) {
-                            Logger.e(e, TAG);
-                        }
-                    }
-                });
-                loadXml.setOnCancelUpdateListen(new LoadAnsyReadVersionXML.OnCancelUpdateListening() {
-                    @Override
-                    public void CompareFinishListening() {
-                        AppManager.getAppManager().AppExit(getActivity());
-                    }
-                });
-                loadXml.execute();
+//                        } catch (Exception e) {
+//                            Logger.e(e, TAG);
+//                        }
+//                    }
+//                });
+//                loadXml.setOnCancelUpdateListen(new LoadAnsyReadVersionXML.OnCancelUpdateListening() {
+//                    @Override
+//                    public void CompareFinishListening() {
+//                        AppManager.getAppManager().AppExit(getActivity());
+//                    }
+//                });
+//                loadXml.execute();
             } else {
                 T.showShort(getApplicationContext(), "请先联网.........");
             }

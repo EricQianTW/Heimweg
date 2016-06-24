@@ -23,7 +23,7 @@ public class RSAUtils {
     private static final String DEFAULT_CHARSET = "UTF-8";
 
     public static String getRSA(HashMap map){
-        Object[] key = (Object[]) map.keySet().toArray();
+        Object[] key = map.keySet().toArray();
         RsaComparator comparator = new RsaComparator();
         Arrays.sort(key,comparator);
         StringBuffer info = new StringBuffer();

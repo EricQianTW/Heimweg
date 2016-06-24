@@ -62,7 +62,7 @@ public class LoadAnsyReadVersionXML extends AsyncTask<Void, Void, Void> {
 			URL url = new URL(UPDATE_SERVER + UPDATE_VERXML + "?dt="
 					+ System.currentTimeMillis());
 
-			URLConnection connection = (URLConnection) url.openConnection();
+			URLConnection connection = url.openConnection();
 			connection.connect();
 			InputStream inputstream = connection.getInputStream();
 			XmlPullParser xml = Xml.newPullParser();

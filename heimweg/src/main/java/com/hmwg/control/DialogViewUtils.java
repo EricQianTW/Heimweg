@@ -32,7 +32,7 @@ public class DialogViewUtils {
 		WindowManager windowManager = ((Activity) context).getWindowManager();
 		Display display = windowManager.getDefaultDisplay();
 		WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-		lp.width = (int) (display.getWidth()); // 设置宽度
+		lp.width = display.getWidth(); // 设置宽度
 		dialog.getWindow().setAttributes(lp);
 		Window window = dialog.getWindow();
 		Button cancel = (Button) window.findViewById(R.id.cancel);
@@ -59,7 +59,7 @@ public class DialogViewUtils {
 		WindowManager windowManager = ((Activity) context).getWindowManager();
 		Display display = windowManager.getDefaultDisplay();
 		WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
-		lp.width = (int) (display.getWidth()); // 设置宽度
+		lp.width = display.getWidth(); // 设置宽度
 		dialog.getWindow().setAttributes(lp);
 		Window window = dialog.getWindow();
 		Button cancel = (Button) window.findViewById(R.id.cancel);

@@ -11,12 +11,12 @@ public class IntentUtils {
 
     public static void startActivity(Context context,Class className){
         Intent intent = new Intent(context,className);
-        ((Activity)context).startActivity(intent);
+        context.startActivity(intent);
     }
 
     public static void startActivityWithFinish(Context context,Class className){
         Intent intent = new Intent(context,className);
-        ((Activity)context).startActivity(intent);
+        context.startActivity(intent);
         ((Activity)context).finish();
     }
 }
